@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Pick up and drop facility for smartphones at your fingertip"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Eazy Service - Pick up and drop facility for smartphones at your fingertip</title>
+
+    <link href="/assets/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="/assets/fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,800,900" rel="stylesheet" />
+    <link href="/assets/chosen/chosen.min.css" rel="stylesheet" />
+    <link href="/assets/jquery-ui-custom/jquery-ui.min.css" rel="stylesheet" />
+    <link href="/assets/pentix/css/pentix.min.css" rel="stylesheet" />
+    <link href="/assets/css/pex-theme.min.css" rel="stylesheet" />
+
+    <style>
+    #home-page-slider .carousel .slide .legend {
+      opacity: 1 !important;
+    }
+
+    #home-page-slider .carousel-slider, #home-page-slider .carousel-slider img {
+      height: 88vh;
+    }
+
+    #testimonials .carousel .control-dots {
+      margin-top: 15px !important;
+    }
+
+    #testimonials .carousel .control-dots .dot {
+      background-color: rgba(102,102,102,.7);
+      border-radius: 0;
+      height: 15px;
+      width: 15px;
+      box-shadow: none;
+    }
+    
+    #testimonials .carousel .control-dots .dot.selected {
+      background-color: #f68f2a;
+    }
+    
+    #partners-carousel .lg-col-1 {
+      text-align: center;
+      vertical-align: middle;
+      margin-top: 20px;
+    }
+    
+    #partners-carousel p {
+      color: #555;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    
+    #partners-carousel .lg-col-1 a div {
+      height: 55px;
+    }
+    
+    #partners-carousel-mobile {
+      display: none !important;
+    }
+    
+    #partners-carousel-mobile .carousel-root {
+      max-width: 100%;
+    }
+    
+    #partners-carousel-mobile .carousel-root img {
+      width: 60%;
+    }
+
+    #partners-carousel-mobile p {
+      color: #555;
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    
+    @media(max-width:480px) {
+      #home-page-slider .carousel-slider,#home-page-slider .carousel-slider img {
+        height: auto;
+      }
+      #partners-carousel {
+        display: none !important;
+      }
+      #partners-carousel-mobile {
+        display: flex !important;
+      }
+    }
+    
+    .list-unstyled {
+      display: block;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 40px;
+    }
+
+    ul.list-unstyled li {
+      list-style: disc;
+      font-size: 15px;
+    }
+
+    ol.list-unstyled li {
+      list-style: decimal;
+      font-size: 15px;
+    }
+    
+    .wa__btn_popup {
+      position: fixed;
+      right: 21px;
+      bottom: 21px;
+      cursor: pointer;
+      font-family: Arial,Helvetica,sans-serif;
+      z-index: 999;
+    }
+
+    .wa__btn_popup .wa__btn_popup_txt {
+      position: absolute;
+      width: 156px;
+      left: 100%;
+      background-color: #f5f7f9;
+      font-size: 12px;
+      color: #43474e;
+      top: 15px;
+      padding: 7px 0 7px 12px;
+      margin-right: 7px;
+      letter-spacing: -.03em;
+      border-radius: 4px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      transition: .4s ease all;
+      -webkit-transition: .4s ease all;
+      -moz-transition: .4s ease all;
+      opacity: 0;
+    }
+    
+    .wa__btn_popup .wa__btn_popup_icon {
+      width: 56px;
+      height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      box-shadow: 0 6px 8px 2px rgb(0 0 0 / 14%);
+      -webkit-box-shadow: 0 6px 8px 2px rgb(0 0 0 / 14%);
+      -moz-box-shadow: 0 6px 8px 2px rgba(0,0,0,.14);
+    }
+    </style>
+  </head>
+  <body class="body loader-loading">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+    <script src="/assets/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/assets/parallax.js/parallax.min.js"></script>
+    <script src="/assets/flexslider/jquery.flexslider-min.js"></script>
+    <script src="/assets/owlcarousel2/owl.carousel.min.js"></script>
+    <script src="/assets/shuffle/shuffle.min.js"></script>
+    <script src="/assets/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/assets/chosen/chosen.jquery.min.js"></script>
+    <script src="/assets/jquery-ui-custom/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/assets/pentix/js/pentix.min.js" type="text/javascript"></script>
+    <script src="/assets/js/script.js" type="text/javascript"></script>
+  </body>
+</html>

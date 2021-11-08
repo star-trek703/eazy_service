@@ -1,4 +1,4 @@
- body .font-raleway,body .raleway-light,body .raleway-regular,body .raleway-medium,body .raleway-semi-bold,body .raleway-bold,body .raleway-extra-bold,body .raleway-black{
+body .font-raleway,body .raleway-light,body .raleway-regular,body .raleway-medium,body .raleway-semi-bold,body .raleway-bold,body .raleway-extra-bold,body .raleway-black{
     font-family:'Raleway' !important
 }
 body .raleway-light{
@@ -2022,9 +2022,9 @@ body.body .text-valid{
         margin-top:auto
     }
 }
-.footer-logo{
+/* .footer-logo{
     height:70px
-}
+} */
 /* .footer-logo img{
     max-height:120px
 } */
@@ -3065,16 +3065,29 @@ body.body .text-valid{
 .service-steps .step-number,.service-simple-steps .step-number{
     font-family:Montserrat;
     font-weight:800;
-    font-size:86px;
+    font-size:50px;
     margin-right:30px
 }
+
+@media (max-width: 480px) {
+    .service-steps .step-number,.service-simple-steps .step-number{
+        font-size: 50px;
+    }
+    .service-steps .step span:nth-child(2) {
+        font-size: 15px;
+    }
+    .service-steps .step-number, .service-simple-steps .step-number {
+        margin-right: 15px;
+    }
+}
+
 .service-steps .step-number.active,.service-simple-steps .step-number.active{
     color:#f68f2a
 }
 .service-steps .step,.service-simple-steps .step{
     height:70px;
     line-height:70px;
-    font-size:24px;
+    font-size:20px;
     font-weight:700;
     margin-bottom:70px
 }
@@ -5174,10 +5187,22 @@ a.item-label:hover{
     height:85px
 }
 .user-ticket .user-ticket-steps{
-    display:inline-block;
+    display: flex;
+    justify-content: space-between;
     vertical-align:top;
     margin-top:-10px
 }
+
+@media(max-width: 480px)
+{
+    .user-ticket .user-ticket-steps {
+        display:inline-block;
+    }
+    .user-ticket .user-ticket-steps .user-ticket-step {
+        margin-top: 10px;
+    }
+}
+
 .user-ticket .user-ticket-steps{
     zoom:1
 }
@@ -5315,9 +5340,9 @@ a.item-label:hover{
     transform:rotate(180deg)
 }
 @media (max-width:767px){
-    .user-ticket{
+    /* .user-ticket{
         text-align:center
-    }
+    } */
     .user-ticket .item-header{
         padding:80px 20px 90px
     }
@@ -5640,6 +5665,18 @@ a.item-label:hover{
 .user-dashboard-user{
     padding-left:70px
 }
+
+@media(max-width: 480px)
+{
+    .user-dashboard-user {
+        padding-left: 0px;
+    }
+
+    .user-dashboard-user-content {
+        margin-bottom: 10px;
+    }
+}
+
 .user-dashboard-user{
     zoom:1
 }
@@ -5654,7 +5691,6 @@ a.item-label:hover{
     float:left
 }
 .user-dashboard-user-content{
-    float:left;
     margin-left:20px
 }
 .user-dashboard-info-line{

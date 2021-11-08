@@ -7,10 +7,19 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import PageNotFound from './components/errors/PageNotFound';
 import AboutUs from './components/AboutUs';
+import SignIn from './components/SignIn';
+import Dashboard from './components/Dashboard';
+import NewRequest from './components/NewRequest';
+import Terms from './components/Terms';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import ScrollTop from './components/ScrollTop';
+import ForgotPassword from './components/ForgotPassword';
 
 const App = () => {
   return (
     <Router>
+      
+      <ScrollTop />
       <Navbar />
 
       <Switch>
@@ -18,6 +27,12 @@ const App = () => {
           <Home />
         ) } />
         <Route path='/about-us' component={ AboutUs } />
+        <Route path='/sign-in' component={ SignIn } />
+        <Route path='/forgot-password' component={ ForgotPassword } />
+        <Route path='/dashboard' component={ Dashboard } />
+        <Route path='/new-request' component={ NewRequest } />
+        <Route path='/terms' component={ Terms } />
+        <Route path='/privacy' component={ PrivacyPolicy } />
         {/* <Route path='/products' render={ () => (
           <Products categories={ categories } />
         ) } />

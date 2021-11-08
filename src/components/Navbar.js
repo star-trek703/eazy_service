@@ -16,10 +16,10 @@ const Navbar = () => {
                             </Link>
                         </div>
                         <div className="header-toggler pull-right xs-shown">
-                            <label className="header-shown-sign" for="header-hidden">
+                            <label className="header-shown-sign" htmlFor="header-hidden">
                                 <i className="fas fa-times" aria-hidden="true"></i>
                             </label>
-                            <label className="header-hidden-sign" for="header-shown">
+                            <label className="header-hidden-sign" htmlFor="header-shown">
                                 <i className="fas fa-bars" aria-hidden="true"></i>
                             </label>
                         </div>

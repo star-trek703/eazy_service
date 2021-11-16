@@ -9,13 +9,13 @@ const Home = () => {
                     <div id="home-page-slider">
                         <Carousel showIndicators={ true } showThumbs={ false } showStatus={ false } showArrows={ false }>
                             <div style={{ position: 'relative' }}>
-                                <img src="/assets/images/slider/new/Homepage Design 1.jpg" />
+                                <img src="/assets/images/slider/new/Homepage Design 1.jpg" alt="" />
                             </div>
                             <div style={{ position: 'relative' }}>
-                                <img src="/assets/images/slider/new/Homepage Design 2.jpg" />
+                                <img src="/assets/images/slider/new/Homepage Design 2.jpg" alt="" />
                             </div>
                             <div style={{ position: 'relative' }}>
-                                <img src="/assets/images/slider/new/Homepage Design 3.jpg" />
+                                <img src="/assets/images/slider/new/Homepage Design 3.jpg" alt="" />
                             </div>
                         </Carousel>
                     </div>

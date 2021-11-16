@@ -1,6 +1,7 @@
 // import React from 'react'
 import './App.css';
-// import { useState, useEffect } from 'react';
+import API_URL from './config'
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -16,6 +17,17 @@ import ScrollTop from './components/ScrollTop';
 import ForgotPassword from './components/ForgotPassword';
 
 const App = () => {
+  // const [loggedIn, setloggedIn] = useState(false)
+  
+  // useEffect(() => {
+  //   fetch(API_URL +'')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       data
+  //     })
+  //     .catch(err => console.log(err))
+  // }, [])
+
   return (
     <Router>
       

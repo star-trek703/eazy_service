@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 const SignIn = () => {
+    const [userID, setUserID] = useState('')
+    const [password, setPassword] = useState('')
+
     return (
         <div>
             <section className="with-bg solid-section">
@@ -47,13 +51,13 @@ const SignIn = () => {
                                         <div className="offs-lg">
                                             <div className="field-group">
                                                 <div className="field-wrap">
-                                                    <input className="field-control" name="unique_id" placeholder="User ID" required="" />
+                                                    <input className="field-control" name="unique_id" placeholder="User ID" value={ userID } onChange={ (e) => setUserID(e.target.value) } required="" />
                                                     <span className="field-back"></span>
                                                 </div>
                                             </div>
                                             <div className="field-group">
                                                 <div className="field-wrap">
-                                                    <input className="field-control" name="password" type="password" placeholder="Password" required="" />
+                                                    <input className="field-control" name="password" type="password" placeholder="Password" value={ password } onChange={ (e) => setPassword(e.target.value) } required="" />
                                                     <span className="field-back"></span>
                                                 </div>
                                             </div>

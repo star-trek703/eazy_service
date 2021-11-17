@@ -1,8 +1,8 @@
 // import React from 'react'
 import './App.css';
-import API_URL from './config'
+import { API_URL } from './config'
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Footer from './components/Footer';
@@ -17,30 +17,72 @@ import ScrollTop from './components/ScrollTop';
 import ForgotPassword from './components/ForgotPassword';
 
 const App = () => {
-  // const [loggedIn, setloggedIn] = useState(false)
+  var logged_in = localStorage.getItem('logged_in')
+  console.log(logged_in)
+
+  const [isLoggedIn, setIsLoggedIn] = useState(logged_in)
+  const [userID, setUserID] = useState('')
   
-  // useEffect(() => {
-  //   fetch(API_URL +'')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       data
-  //     })
-  //     .catch(err => console.log(err))
-  // }, [])
+  useEffect(() => {
+    let token = localStorage.getItem('token') ?? false
+
+    let formData = new FormData()
+    formData.append('token', token)
+
+    let options = {
+      method: 'POST',
+      body: formData
+    }
+
+    fetch(API_URL +"isLoggedIn.php", options)
+      .then(res => res.json())
+      .then(data => {
+        let { error, logged_in } = data
+
+        if (! error) {
+          setIsLoggedIn(logged_in)
+          setUserID(data.user_id)
+        }
+        else{
+          setIsLoggedIn(logged_in)
+          setUserID('')
+
+          localStorage.setItem('logged_in', false)
+          localStorage.setItem('token', '')
+        }
+      })
+  }, [])
 
   return (
     <Router>
       
       <ScrollTop />
-      <Navbar />
+      <Navbar isLoggedIn={ isLoggedIn } setIsLoggedIn={ setIsLoggedIn } />
 
       <Switch>
         <Route path='/' exact render={ () => (
           <Home />
         ) } />
         <Route path='/about-us' component={ AboutUs } />
-        <Route path='/sign-in' component={ SignIn } />
-        <Route path='/forgot-password' component={ ForgotPassword } />
+        
+        <Route path='/sign-in' render={ (props) => 
+          (! isLoggedIn) ? 
+          <SignIn props={ props } setIsLoggedIn={ setIsLoggedIn } /> : 
+          <Redirect to='/dashboard' />
+        } />
+        
+        <Route path='/forgot-password' render={ (props) => 
+          (! isLoggedIn) ? 
+          <ForgotPassword props={ props } /> : 
+          <Redirect to='/dashboard' />
+        } />
+        
+        <Route path='/dashboard' render={ () => 
+          (isLoggedIn) ? 
+          <Dashboard /> : 
+          <Redirect to='/sign-in' />
+        } />
+        
         <Route path='/dashboard' component={ Dashboard } />
         <Route path='/new-request' component={ NewRequest } />
         <Route path='/terms' component={ Terms } />

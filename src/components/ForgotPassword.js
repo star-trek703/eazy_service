@@ -1,6 +1,74 @@
+import { API_URL } from '../config'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
-const ForgotPassword = () => {
+const ForgotPassword = ({ props }) => {
+    const [uniqueID, setUniqueID] = useState('')
+    const [OTP, setOTP] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+
+    const [enableUniqueIDField, setEnableUniqueIDField] = useState(true)
+    const [showRegistrationFields, setShowRegistrationFields] = useState(false)
+    const [showSendOTPBtn, setShowSendOTPBtn] = useState(true)
+    const [showSubmitBtn, setShowSubmitBtn] = useState(false)
+
+    // send OTP
+    const sendOTP = (e) => {
+        e.preventDefault()
+
+        let formData = new FormData()
+        formData.append('user_id', uniqueID)
+
+        let options = {
+            method: 'POST',
+            body: formData
+        }
+
+        fetch(API_URL +"sendOtp.php", options)
+            .then(res => res.json())
+            .then(data => {
+                let { error, message } = data
+
+                alert(message)
+
+                if (! error) {
+                    setEnableUniqueIDField(false)
+                    setShowRegistrationFields(true)
+                    setShowSendOTPBtn(false)
+                    setShowSubmitBtn(true)
+                }
+            })
+    }
+
+    // forgot password
+    const forgotPassword = (e) => {
+        e.preventDefault()
+
+        let formData = new FormData()
+        formData.append('user_id', uniqueID)
+        formData.append('otp', OTP)
+        formData.append('new_password', password)
+        formData.append('confirm_password', confirmPassword)
+
+        let options = {
+            method: 'POST',
+            body: formData
+        }
+
+        fetch(API_URL +"reset_password.php", options)
+            .then(res => res.json())
+            .then(data => {
+                let { error, message } = data
+
+                alert(message)
+
+                if (! error) {
+                    props.history.push('/sign-in')
+                }
+            })
+    }
+
     return (
         <div>
             <section className="with-bg solid-section">
@@ -44,38 +112,38 @@ const ForgotPassword = () => {
                                         <div className="offs-lg">
                                             <div className="field-group">
                                                 <div className="field-wrap">
-                                                    <input type="text" className="field-control" name="user_id" placeholder="Your User ID" required="" />
+                                                    <input type="text" className="field-control" name="user_id" placeholder="Your User ID" value={ uniqueID } onChange={ (e) => setUniqueID(e.target.value) } value={ uniqueID } onChange={ (e) => setUniqueID(e.target.value) } disabled={ (enableUniqueIDField) ? false : true } required="" />
                                                     <span className="field-back"></span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="offs-lg" style={{ display: 'none' }}>
+                                        <div className="offs-lg" style={{ display: (showRegistrationFields) ? 'block' : 'none' }}>
                                             <div className="field-group">
                                                 <div className="field-wrap">
-                                                    <input type="number" className="field-control" name="otp" placeholder="OTP" required="" />
+                                                    <input type="number" className="field-control" name="otp" placeholder="OTP" value={ OTP } onChange={ (e) => setOTP(e.target.value) } required="" />
                                                     <span className="field-back"></span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="offs-lg" style={{ display: 'none' }}>
+                                        <div className="offs-lg" style={{ display: (showRegistrationFields) ? 'block' : 'none' }}>
                                             <div className="field-group">
                                                 <div className="field-wrap">
-                                                    <input type="password" className="field-control" name="password" placeholder="Password" required="" />
+                                                    <input type="password" className="field-control" name="password" placeholder="Password" value={ password } onChange={ (e) => setPassword(e.target.value) } required="" />
                                                     <span className="field-back"></span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="offs-lg" style={{ display: 'none' }}>
+                                        <div className="offs-lg" style={{ display: (showRegistrationFields) ? 'block' : 'none' }}>
                                             <div className="field-group">
                                                 <div className="field-wrap">
-                                                    <input type="password" className="field-control" name="confirm_password" placeholder="Confirm Password" required="" />
+                                                    <input type="password" className="field-control" name="confirm_password" placeholder="Confirm Password" value={ confirmPassword } onChange={ (e) => setConfirmPassword(e.target.value) } required="" />
                                                     <span className="field-back"></span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="text-left">
-                                            <button className="btn text-upper" type="button" style={{ display: 'block' }}>Send OTP</button>
-                                            <button className="btn text-upper" type="button" style={{ display: 'none' }}>Submit</button>
+                                            <button className="btn text-upper" type="button" onClick={ sendOTP } style={{ display: (showSendOTPBtn) ? 'block' : 'none' }}>Send OTP</button>
+                                            <button className="btn text-upper" type="button" onClick={ forgotPassword } style={{ display: (showSubmitBtn) ? 'block' : 'none' }}>Submit</button>
                                         </div>
                                     </div>
                                 </div>

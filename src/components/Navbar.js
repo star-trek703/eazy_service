@@ -1,6 +1,36 @@
+import { API_URL } from '../config'
 import { Link } from "react-router-dom"
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
+    const logout = (e) => {
+        e.preventDefault()
+
+        let token = localStorage.getItem('token')
+
+        let formData = new FormData()
+        formData.append('token', token)
+
+        let options = {
+            method: 'POST',
+            body: formData
+        }
+
+        fetch(API_URL +"logout.php", options)
+            .then(res => res.json())
+            .then(data => {
+                let { error, message } = data
+
+                if (error) {
+                    alert(message)
+                } else {
+                    setIsLoggedIn(false)
+
+                    localStorage.setItem('logged_in', false)
+                    localStorage.setItem('token', '')
+                }
+            })
+    }
+    
     return (
         <div>
             <header className="header">
@@ -32,9 +62,21 @@ const Navbar = () => {
                                 <li>
                                     <Link to="/about-us">About us</Link>
                                 </li>
+                                
+                                { (! isLoggedIn) ? 
                                 <li>
                                     <Link to="/sign-in">Sign In</Link>
-                                </li>
+                                </li> : '' }
+                                
+                                { (isLoggedIn) ? 
+                                <li>
+                                    <Link to="/dashboard">Dashboard</Link>
+                                </li> : '' }
+
+                                { (isLoggedIn) ? 
+                                <li>
+                                    <Link to="#" onClick={ logout }>Logout</Link>
+                                </li> : '' }
                             </ul>
                         </div>
                     </div>

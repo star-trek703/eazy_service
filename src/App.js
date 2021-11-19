@@ -15,16 +15,17 @@ import Terms from './components/Terms';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import ScrollTop from './components/ScrollTop';
 import ForgotPassword from './components/ForgotPassword';
+import SingleRequest from './components/SingleRequest';
+import EditRequest from './components/EditRequest';
 
 const App = () => {
   var logged_in = localStorage.getItem('logged_in')
-  console.log(logged_in)
 
   const [isLoggedIn, setIsLoggedIn] = useState(logged_in)
   const [userID, setUserID] = useState('')
   
   useEffect(() => {
-    let token = localStorage.getItem('token') ?? false
+    let token = localStorage.getItem('token')
 
     let formData = new FormData()
     formData.append('token', token)
@@ -77,25 +78,39 @@ const App = () => {
           <Redirect to='/dashboard' />
         } />
         
-        <Route path='/dashboard' render={ () => 
+        <Route path='/dashboard' render={ (props) => 
           (isLoggedIn) ? 
-          <Dashboard /> : 
+          <Dashboard props={ props } /> : 
           <Redirect to='/sign-in' />
         } />
         
-        <Route path='/dashboard' component={ Dashboard } />
-        <Route path='/new-request' component={ NewRequest } />
+        <Route path='/dashboard' render={ (props) => 
+          (isLoggedIn) ? 
+          <Dashboard props={ props } /> : 
+          <Redirect to='/sign-in' />
+        } />
+
+        <Route path='/new-request' render={ (props) => 
+          (isLoggedIn) ? 
+          <NewRequest props={ props } userID={ userID } /> : 
+          <Redirect to='/sign-in' />
+        } />
+
+        <Route path='/request/:id' render={ (props) => 
+          (isLoggedIn) ? 
+          <SingleRequest props={ props } /> : 
+          <Redirect to='/sign-in' />
+        } />
+
+        <Route path='/update-request/:id' render={ (props) => 
+          (isLoggedIn) ? 
+          <EditRequest props={ props } /> : 
+          <Redirect to='/sign-in' />
+        } />
+
         <Route path='/terms' component={ Terms } />
         <Route path='/privacy' component={ PrivacyPolicy } />
-        {/* <Route path='/products' render={ () => (
-          <Products categories={ categories } />
-        ) } />
-        <Route path='category/:category' render={ ({match}) => (
-          <SingleCategory category={ categories.find(category => category.name === match.params.category) } />
-        ) } />
-        <Route path='/services' component={ Services } />
-        <Route path='/contact' component={ Contact } />
-        <Route path='/about' component={ About } /> */}
+
         <Route>
           <PageNotFound />
         </Route>

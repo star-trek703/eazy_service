@@ -2,6 +2,8 @@ import { API_URL } from '../config'
 import { Link } from "react-router-dom"
 
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
+
+    // logout
     const logout = (e) => {
         e.preventDefault()
 

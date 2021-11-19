@@ -1,8 +1,13 @@
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 
 const AboutUs = () => {
     return (
         <div>
+            <Helmet>
+                <title>Eazy Service - About</title>
+            </Helmet>
+
             <section class="with-bg solid-section">
                 <div class="fix-image-wrap" data-image-src="/assets/images/service/harddrive.jpg" data-parallax="scroll"></div>
                 <div class="theme-back"></div>

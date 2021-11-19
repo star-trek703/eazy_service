@@ -1,8 +1,13 @@
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 
 const PrivacyPolicy = () => {
     return (
         <div>
+            <Helmet>
+                <title>Eazy Service - Privacy Policy</title>
+            </Helmet>
+
             <section className="with-bg solid-section">
                 <div className="fix-image-wrap" data-image-src="/assets/images/service/tools.jpg" data-parallax="scroll"></div>
                 <div className="theme-back"></div>

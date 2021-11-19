@@ -1,9 +1,14 @@
+import { Helmet } from 'react-helmet'
 import { Carousel } from 'react-responsive-carousel'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Eazy Service - Pick up and drop facility for smartphones at your fingertip</title>
+            </Helmet>
+
             <section>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <div id="home-page-slider">

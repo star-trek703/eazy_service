@@ -1,6 +1,7 @@
 import { API_URL } from '../config'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { Helmet } from 'react-helmet'
 
 const ForgotPassword = ({ props }) => {
     const [uniqueID, setUniqueID] = useState('')
@@ -71,6 +72,10 @@ const ForgotPassword = ({ props }) => {
 
     return (
         <div>
+            <Helmet>
+                <title>Eazy Service - Forgot Password</title>
+            </Helmet>
+
             <section className="with-bg solid-section">
                 <div className="fix-image-wrap" data-image-src="/assets/images/service/harddrive.jpg" data-parallax="scroll"></div>
                 <div className="theme-back"></div>

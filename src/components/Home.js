@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet'
 import { Carousel } from 'react-responsive-carousel'
+import './carousel.css'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
@@ -12,53 +13,19 @@ const Home = () => {
             <section>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <div id="home-page-slider">
-                        <Carousel showIndicators={ true } showThumbs={ false } showStatus={ false } showArrows={ false }>
-                            <div style={{ position: 'relative' }}>
-                                <img src="/assets/images/slider/new/Homepage Design 1.jpg" alt="" />
+                        <Carousel showArrows={ true } showThumbs={ false } showStatus={ false } swipeable={ true } emulateTouch={ true }>
+                            <div>
+                                <img src="/assets/images/slider/new/Homepage Design 1.jpg" />
                             </div>
-                            <div style={{ position: 'relative' }}>
-                                <img src="/assets/images/slider/new/Homepage Design 2.jpg" alt="" />
+                            <div>
+                                <img src="/assets/images/slider/new/Homepage Design 2.jpg" />
                             </div>
-                            <div style={{ position: 'relative' }}>
-                                <img src="/assets/images/slider/new/Homepage Design 3.jpg" alt="" />
+                            <div>
+                                <img src="/assets/images/slider/new/Homepage Design 3.jpg" />
                             </div>
                         </Carousel>
                     </div>
                 </div>
-                {/* <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <div id="home-page-slider">
-                        <div className="carousel-root" tabindex="0">
-                            <div className="carousel carousel-slider" style={{ width: '100%' }}>
-                                <ul className="control-dots">
-                                    <li className="dot" value="0" role="button" tabindex="0" aria-label="slide item 1"></li>
-                                    <li className="dot selected" value="1" role="button" tabindex="0" aria-label="slide item 2"></li>
-                                    <li className="dot" value="2" role="button" tabindex="0" aria-label="slide item 3"></li>
-                                </ul>
-                                <button type="button" aria-label="previous slide / item" className="control-arrow control-prev"></button>
-                                <div className="slider-wrapper axis-horizontal">
-                                    <ul className="slider animated" style={{ transform: 'translate3d(-100%, 0px, 0px)', transitionDuration: '350ms' }}>
-                                        <li className="slide">
-                                            <div style={{ position: 'relative' }}>
-                                                <img src="/assets/images/slider/new/Homepage Design 1.jpg" />
-                                            </div>
-                                        </li>
-                                        <li className="slide selected">
-                                            <div style={{ position: 'relative' }}>
-                                                <img src="/assets/images/slider/new/Homepage Design 2.jpg" />
-                                            </div>
-                                        </li>
-                                        <li className="slide">
-                                            <div style={{ position: 'relative' }}>
-                                                <img src="/assets/images/slider/new/Homepage Design 3.jpg" />
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <button type="button" aria-label="next slide / item" className="control-arrow control-next"></button>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
             </section>
             <div className="clearfix muted-bg">
                 <section className="content-section">
@@ -202,110 +169,91 @@ const Home = () => {
                         </p>
                     </div>
                     <div id="testimonials">
-                        <div className="carousel-root" tabindex="0">
-                            <div className="carousel carousel-slider" style={{ width: '100%' }}>
-                                <ul className="control-dots">
-                                    <li className="dot selected" value="0" role="button" tabindex="0" aria-label="slide item 1"></li>
-                                    <li className="dot" value="1" role="button" tabindex="0" aria-label="slide item 2"></li>
-                                    <li className="dot" value="2" role="button" tabindex="0" aria-label="slide item 3"></li>
-                                    <li className="dot" value="3" role="button" tabindex="0" aria-label="slide item 4"></li>
-                                </ul>
-                                <button type="button" aria-label="previous slide / item" className="control-arrow control-prev control-disabled"></button>
-                                <div className="slider-wrapper axis-horizontal">
-                                    <ul className="slider animated" style={{ transform: 'translate3d(0px, 0px, 0px)', transitionDuration: '350ms' }}>
-                                        <li className="slide selected">
-                                            <div className="testimonial-item" style={{ marginBottom: '45px' }}>
-                                                <div className="simple-testimonial text-center">
-                                                    <div className="tt-title">Great customer support</div>
-                                                    <div className="tt-rating">
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                    </div>
-                                                    <div className="tt-content">
-                                                        <div className="tt-quote">“</div>
-                                                        Eazy Service policy will help to save our most important time, required to spend at Authorised Service Centers for Repairs at a minimal cost.
-                                                    </div>
-                                                    <div className="pexx-tt-user-title">
-                                                        Vijay Hingale
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="slide">
-                                            <div>
-                                                <div className="simple-testimonial text-center">
-                                                    <div className="tt-title">Flexible services</div>
-                                                    <div className="tt-rating">
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                    </div>
-                                                    <div className="tt-content">
-                                                        <div className="tt-quote">“</div>
-                                                        As the Authorised Service Center is far from my home, I couldn’t afford to waste my time &amp; efforts in traveling long for smartphone repairs. Eazy Service has made it easier for me.
-                                                    </div>
-                                                    <div className="pexx-tt-user-title">
-                                                        Abhishek Nalawade
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="slide">
-                                            <div>
-                                                <div className="simple-testimonial text-center">
-                                                    <div className="tt-title">
-                                                        Excellent team
-                                                    </div>
-                                                    <div className="tt-rating">
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                    </div>
-                                                    <div className="tt-content">
-                                                        <div className="tt-quote">“</div>
-                                                        Being a job holder its difficult to visit an authorized service center to get my One Plus repaired, Eazy Service takes the whole responsibility of pick up and delivering my device from my home to the service center
-                                                    </div>
-                                                    <div className="pexx-tt-user-title">
-                                                        Rahul Gupta
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="slide">
-                                            <div>
-                                                <div className="simple-testimonial text-center">
-                                                    <div className="tt-title">
-                                                        Flexible services
-                                                    </div>
-                                                    <div className="tt-rating">
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
-                                                    </div>
-                                                    <div className="tt-content">
-                                                        <div className="tt-quote">“</div>
-                                                        Highly recommended for all users who want complete peace of mind in just less than a thousand rupees that too for 4 years.
-                                                    </div>
-                                                    <div className="pexx-tt-user-title">
-                                                        Navin Shah
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                        <Carousel showArrows={ true } showThumbs={ false } showStatus={ false } swipeable={ true } emulateTouch={ true }>
+                            <div className="testimonial-item">
+                                <div className="simple-testimonial text-center">
+                                    <div className="tt-title">Great customer support</div>
+                                    <div className="tt-rating">
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <div className="tt-content">
+                                        <div className="tt-quote">“</div>
+                                        Eazy Service policy will help to save our most important time, required to spend at Authorised Service Centers for Repairs at a minimal cost.
+                                    </div>
+                                    <div className="pexx-tt-user-title">
+                                        Vijay Hingale
+                                    </div>
                                 </div>
-                                <button type="button" aria-label="next slide / item" className="control-arrow control-next control-disabled"></button>
                             </div>
-                        </div>
+
+                            <div>
+                                <div className="simple-testimonial text-center">
+                                    <div className="tt-title">Flexible services</div>
+                                    <div className="tt-rating">
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <div className="tt-content">
+                                        <div className="tt-quote">“</div>
+                                        As the Authorised Service Center is far from my home, I couldn’t afford to waste my time &amp; efforts in traveling long for smartphone repairs. Eazy Service has made it easier for me.
+                                    </div>
+                                    <div className="pexx-tt-user-title">
+                                        Abhishek Nalawade
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div className="simple-testimonial text-center">
+                                    <div className="tt-title">
+                                        Excellent team
+                                    </div>
+                                    <div className="tt-rating">
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <div className="tt-content">
+                                        <div className="tt-quote">“</div>
+                                        Being a job holder its difficult to visit an authorized service center to get my One Plus repaired, Eazy Service takes the whole responsibility of pick up and delivering my device from my home to the service center
+                                    </div>
+                                    <div className="pexx-tt-user-title">
+                                        Rahul Gupta
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div className="simple-testimonial text-center">
+                                    <div className="tt-title">
+                                        Flexible services
+                                    </div>
+                                    <div className="tt-rating">
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                        <i className="tt-star fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <div className="tt-content">
+                                        <div className="tt-quote">“</div>
+                                        Highly recommended for all users who want complete peace of mind in just less than a thousand rupees that too for 4 years.
+                                    </div>
+                                    <div className="pexx-tt-user-title">
+                                        Navin Shah
+                                    </div>
+                                </div>
+                            </div>
+                        </Carousel>
                     </div>
                 </div>
             </section>
@@ -392,7 +340,7 @@ const Home = () => {
                     </div>
                                         
                     <div id="partners-carousel-mobile" className="row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <div className="carousel-root" tabindex="0">
+                        <div className="carousel-root" tabIndex="0">
                             <div className="carousel carousel-slider" style={{ width: '100%' }}>
                                 <button type="button" aria-label="previous slide / item" className="control-arrow control-prev control-disabled"></button>
                                 <div className="slider-wrapper axis-horizontal">

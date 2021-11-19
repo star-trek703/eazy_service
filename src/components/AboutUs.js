@@ -1,42 +1,48 @@
+import { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 
-const AboutUs = () => {
+const AboutUs = ({ navbarStatus, setNavbarStatus }) => {
+    useEffect(() => {
+        setNavbarStatus(false)
+        console.log
+    }, [])
+
     return (
         <div>
             <Helmet>
                 <title>Eazy Service - About</title>
             </Helmet>
 
-            <section class="with-bg solid-section">
-                <div class="fix-image-wrap" data-image-src="/assets/images/service/harddrive.jpg" data-parallax="scroll"></div>
-                <div class="theme-back"></div>
-                <div class="container page-info">
-                    <div class="section-alt-head container-md">
-                        <h1 class="section-title text-upper text-lg" data-inview-showup="showup-translate-right">
+            <section className="with-bg solid-section">
+                <div className="fix-image-wrap" data-image-src="/assets/images/service/harddrive.jpg" data-parallax="scroll"></div>
+                <div className="theme-back"></div>
+                <div className="container page-info">
+                    <div className="section-alt-head container-md">
+                        <h1 className="section-title text-upper text-lg" data-inview-showup="showup-translate-right">
                             About Us
                         </h1>
                     </div>
                 </div>
-                <div class="section-footer">
-                    <div class="container" data-inview-showup="showup-translate-down">
-                        <ul class="page-path">
+                <div className="section-footer">
+                    <div className="container" data-inview-showup="showup-translate-down">
+                        <ul className="page-path">
                             <li>
                                 <Link to="/">Home</Link>
                             </li>
-                            <li class="path-separator">
-                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            <li className="path-separator">
+                                <i className="fas fa-chevron-right" aria-hidden="true"></i>
                             </li>
                             <li>About Us</li>
                         </ul>
                     </div>
                 </div>
             </section>
-            <section class="muted-bg solid-section" data-inview-showup="showup-translate-up">
-                <div class="container">
-                    <div class="row cols-xl rows-lg">
-                        <div class="md-col-12 text-center md-text-left">
-                            <h2 class="text-upper text-semibold">
+            <section className="muted-bg solid-section" data-inview-showup="showup-translate-up">
+                <div className="container">
+                    <div className="row cols-xl rows-lg">
+                        <div className="md-col-12 text-center md-text-left">
+                            <h2 className="text-upper text-semibold">
                                 About Us
                             </h2>
                             <p>
@@ -45,11 +51,11 @@ const AboutUs = () => {
                             <p>
                                 Our hassle-free &amp; reliable device pickup service is widely available across Electronic Retail Stores. We ensure to give our customers the most relaxing experience by just seating at home because we believe customers’ time and efforts are most valuable.
                             </p>
-                            <h2 class="text-upper text-semibold mt-5">
+                            <h2 className="text-upper text-semibold mt-5">
                                 Our Process
                             </h2>
-                            <div class="md-col-6 md-fix-container mx-auto">
-                                <img class="image" src="/assets/images/service/about.png" alt="" />
+                            <div className="md-col-6 md-fix-container mx-auto">
+                                <img className="image" src="/assets/images/service/about.png" alt="" />
                             </div>
                         </div>
                     </div>

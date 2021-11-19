@@ -24,6 +24,8 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(logged_in)
   const [userID, setUserID] = useState('')
   
+  const [navbarStatus, setNavbarStatus] = useState('')
+  
   useEffect(() => {
     let token = localStorage.getItem('token')
 
@@ -58,13 +60,15 @@ const App = () => {
     <Router>
       
       <ScrollTop />
-      <Navbar isLoggedIn={ isLoggedIn } setIsLoggedIn={ setIsLoggedIn } />
+      <Navbar navbarStatus={ navbarStatus } setNavbarStatus={ setNavbarStatus } isLoggedIn={ isLoggedIn } setIsLoggedIn={ setIsLoggedIn } />
 
       <Switch>
         <Route path='/' exact render={ () => (
-          <Home />
+          <Home setNavbarStatus={ setNavbarStatus } />
         ) } />
-        <Route path='/about-us' component={ AboutUs } />
+        <Route path='/about-us' render={ () => 
+          <AboutUs setNavbarStatus={ setNavbarStatus } />
+        } />
         
         <Route path='/sign-in' render={ (props) => 
           (! isLoggedIn) ? 

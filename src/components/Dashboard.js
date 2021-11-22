@@ -4,12 +4,7 @@ import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 
 const Dashboard = ({ props }) => {
-    const [customerID, setCustomerID] = useState('')
     const [name, setName] = useState('')
-    const [mobile, setMobile] = useState('')
-    const [email, setEmail] = useState('')
-    const [pickupAddress, setPickupAddress] = useState('')
-    const [pincode, setPincode] = useState('')
     const [brand, setBrand] = useState('')
     const [model, setModel] = useState('')
     const [color, setColor] = useState('')
@@ -35,15 +30,10 @@ const Dashboard = ({ props }) => {
             fetch(API_URL +"getDashboard.php", options)
                 .then(res => res.json())
                 .then(data => {
-                    let { error, ID, name, mobile, email, pickup, pincode, brand, model, 
-                        color, imei, invoice_path, purchase_date, expiry_date, requests } = data
+                    let { name, brand, model, color, imei, invoice_path, 
+                        purchase_date, expiry_date, requests } = data
             
-                    setCustomerID(ID)
                     setName(name)
-                    setMobile(mobile)
-                    setEmail(email)
-                    setPickupAddress(pickup)
-                    setPincode(pincode)
                     setBrand(brand)
                     setModel(model)
                     setColor(color)

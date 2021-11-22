@@ -3022,11 +3022,14 @@ body.body .text-valid{
     margin-bottom:30px
 }
 .price-block.simple .price-list{
-    margin-bottom:30px
+    margin-bottom:30px;
+    text-align: left;
+    height: 500px;
 }
 .price-block.simple .price-list li{
     padding-bottom:5px;
-    line-height:1.6
+    line-height: 2.1;
+    font-size: 15px;
 }
 /* Short pricing block variation */
  .price-block.short{

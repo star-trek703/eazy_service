@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const AboutUs = ({ navbarStatus, setNavbarStatus }) => {
     useEffect(() => {
         setNavbarStatus(false)
-        console.log
+        console.log(navbarStatus)
     }, [])
 
     return (

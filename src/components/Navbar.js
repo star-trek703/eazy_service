@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import { API_URL } from '../config'
 import { Link } from "react-router-dom"
 
-const Navbar = ({ navbarStatus, setNavbarStatus, isLoggedIn, setIsLoggedIn }) => {
-    useEffect(() => {
-        console.log(navbarStatus)
-        setNavbarStatus(false)
-    }, [navbarStatus])
+const Navbar = ({ navbarStatus, isLoggedIn, setIsLoggedIn }) => {
+    // useEffect(() => {
+    //     console.log(navbarStatus)
+    //     setNavbarStatus(false)
+    // }, [])
 
     // logout
     const logout = (e) => {
@@ -65,6 +65,11 @@ const Navbar = ({ navbarStatus, setNavbarStatus, isLoggedIn, setIsLoggedIn }) =>
                             <li>
                                 <Link to="/">Home</Link>
                             </li>
+
+                            <li>
+                                <Link to="/services">Services</Link>
+                            </li>
+                            
                             <li>
                                 <Link to="/about-us">About us</Link>
                             </li>

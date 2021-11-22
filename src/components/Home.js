@@ -2,8 +2,14 @@ import { Helmet } from 'react-helmet'
 import { Carousel } from 'react-responsive-carousel'
 import './carousel.css'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
-const Home = () => {
+const Home = ({ navbarStatus, setNavbarStatus }) => {
+    useEffect(() => {
+        setNavbarStatus(false)
+        console.log(navbarStatus)
+    }, [])
+
     return (
         <div>
             <Helmet>
@@ -13,15 +19,15 @@ const Home = () => {
             <section>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <div id="home-page-slider">
-                        <Carousel showArrows={ true } showThumbs={ false } showStatus={ false } swipeable={ true } emulateTouch={ true }>
+                        <Carousel showArrows={ true } showThumbs={ false } showStatus={ false } swipeable={ true } emulateTouch={ true } autoPlay={ true }>
                             <div>
-                                <img src="/assets/images/slider/new/Homepage Design 1.jpg" />
+                                <img src="/assets/images/slider/new/Homepage Design 1.jpg" alt="" />
                             </div>
                             <div>
-                                <img src="/assets/images/slider/new/Homepage Design 2.jpg" />
+                                <img src="/assets/images/slider/new/Homepage Design 2.jpg" alt="" />
                             </div>
                             <div>
-                                <img src="/assets/images/slider/new/Homepage Design 3.jpg" />
+                                <img src="/assets/images/slider/new/Homepage Design 3.jpg" alt="" />
                             </div>
                         </Carousel>
                     </div>

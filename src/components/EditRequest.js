@@ -37,7 +37,7 @@ const EditRequest = ({ props }) => {
             fetch(API_URL +"getPinCodes.php")
                 .then(res => res.json())
                 .then(data => {
-                    let { error, message } = data
+                    let { error } = data
 
                     if(error) {
                         console.error('No PIN codes found');
@@ -52,7 +52,7 @@ const EditRequest = ({ props }) => {
             fetch(API_URL +"getTimeSlots.php")
                 .then(res => res.json())
                 .then(data => {
-                    let { error, message } = data
+                    let { error } = data
 
                     if(error) {
                         console.error('No time slots found');
@@ -98,7 +98,7 @@ const EditRequest = ({ props }) => {
         getTimeSlots()
         getRequestDetails()
     
-        }, [])
+        }, [props.match.params.id])
     
     
     // add new request

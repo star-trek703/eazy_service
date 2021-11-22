@@ -1,0 +1,125 @@
+.inner--left {
+    width: 270px;
+}
+
+.inner--right {
+    width: 500px;
+}
+
+@media (max-width: 960px) {
+    header,
+    section,
+    footer {
+        width: initial;
+        position: initial;
+        padding: 0 20px;
+    }
+
+    .inner {
+        padding: 20px 0;
+    }
+
+    .inner--left {
+        width: auto;
+    }
+
+    .inner--right {
+        width: auto;
+        border: 1px solid var(--themesDarkColorOutline);
+        border-width: 1px 0;
+    }
+}
+
+.code {
+    margin-top: 10px;
+}
+.code__button {
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 0;
+    color: var(--colorPageLinks);
+    text-decoration: underline solid var(--colorGreenShadow);
+}
+.code__button:hover {
+    color: var(--colorGreen);
+}
+
+@media print {
+    body {
+        padding: 0.4in;
+        font-size: 12pt;
+    }
+}
+
+.u-margin-top {
+    margin-top: 1.875rem;
+}
+
+
+
+
+
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+[hidden] {
+    display: none;
+}
+
+.accordion__panel {
+    /* padding: 20px; */
+    padding: 20px 20px 20px 40px;
+    animation: fadein 0.35s ease-in;
+    line-height: 25px;
+}
+
+/* -------------------------------------------------- */
+/* ---------------- Animation part ------------------ */
+/* -------------------------------------------------- */
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

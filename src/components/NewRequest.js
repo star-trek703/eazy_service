@@ -10,8 +10,6 @@ const NewRequest = ({ props, userID }) => {
     const [pinCodes, setPinCodes] = useState([])
     const [timeSlots, setTimeSlots] = useState([])
 
-    const [customerID, setCustomerID] = useState('')
-    
     const [title, setTitle] = useState('')
     const [name, setName] = useState('')
     const [mobile, setMobile] = useState('')
@@ -37,7 +35,7 @@ const NewRequest = ({ props, userID }) => {
             fetch(API_URL +"getPinCodes.php")
                 .then(res => res.json())
                 .then(data => {
-                    let { error, message } = data
+                    let { error } = data
 
                     if(error) {
                         console.error('No PIN codes found');
@@ -52,7 +50,7 @@ const NewRequest = ({ props, userID }) => {
             fetch(API_URL +"getTimeSlots.php")
                 .then(res => res.json())
                 .then(data => {
-                    let { error, message } = data
+                    let { error } = data
 
                     if(error) {
                         console.error('No time slots found');
@@ -77,10 +75,9 @@ const NewRequest = ({ props, userID }) => {
             fetch(API_URL +"getDashboard.php", options)
                 .then(res => res.json())
                 .then(data => {
-                    let { error, ID, name, mobile, email, pickup, pincode } = data
+                    let { error, name, mobile, email, pickup, pincode } = data
                         
                     if(!error) {
-                        setCustomerID(ID)
                         setName(name)
                         setMobile(mobile)
                         setEmail(email)

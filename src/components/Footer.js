@@ -46,12 +46,12 @@ const Footer = () => {
                                         <div className="sm-col-4">
                                             <div className="footer-title alt-color text-upper">Socials</div>
                                             <div className="cols-list socials cols-sm inline-block">
-                                                <Link to="https://www.instagram.com/eazy__service/" className="list-item" target="_blank">
+                                                <a href="https://www.instagram.com/eazy__service/" className="list-item" target="_blank" rel="noreferrer">
                                                     <i className="fab fa-instagram" aria-hidden="true"></i>
-                                                </Link>
-                                                <Link to="https://www.facebook.com/eazy__service-251406360112444" className="list-item" target="_blank">
+                                                </a>
+                                                <a href="https://www.facebook.com/eazy__service-251406360112444" className="list-item" target="_blank" rel="noreferrer">
                                                     <i className="fab fa-facebook-f" aria-hidden="true"></i>
-                                                </Link>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

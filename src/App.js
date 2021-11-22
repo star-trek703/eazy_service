@@ -17,6 +17,7 @@ import ScrollTop from './components/ScrollTop';
 import ForgotPassword from './components/ForgotPassword';
 import SingleRequest from './components/SingleRequest';
 import EditRequest from './components/EditRequest';
+import Services from './components/Services';
 
 const App = () => {
   var logged_in = localStorage.getItem('logged_in')
@@ -24,7 +25,7 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(logged_in)
   const [userID, setUserID] = useState('')
   
-  const [navbarStatus, setNavbarStatus] = useState('')
+  const [navbarStatus, setNavbarStatus] = useState(true)
   
   useEffect(() => {
     let token = localStorage.getItem('token')
@@ -60,12 +61,17 @@ const App = () => {
     <Router>
       
       <ScrollTop />
-      <Navbar navbarStatus={ navbarStatus } setNavbarStatus={ setNavbarStatus } isLoggedIn={ isLoggedIn } setIsLoggedIn={ setIsLoggedIn } />
+      <Navbar navbarStatus={ navbarStatus } isLoggedIn={ isLoggedIn } setIsLoggedIn={ setIsLoggedIn } />
 
       <Switch>
         <Route path='/' exact render={ () => (
           <Home setNavbarStatus={ setNavbarStatus } />
         ) } />
+
+        <Route path='/services' render={ () => 
+          <Services setNavbarStatus={ setNavbarStatus } />
+        } />
+        
         <Route path='/about-us' render={ () => 
           <AboutUs setNavbarStatus={ setNavbarStatus } />
         } />

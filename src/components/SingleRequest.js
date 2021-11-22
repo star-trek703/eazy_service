@@ -6,16 +6,12 @@ import { Helmet } from 'react-helmet'
 
 const SingleRequest = ({ props }) => {
     const [error, setError] = useState(false)
-    const [requestID, setRequestID] = useState('')
     const [requestNo, setRequestNo] = useState('')
     const [name, setName] = useState('')
     const [mobile, setMobile] = useState('')
-    const [email, setEmail] = useState('')
     const [pickupAddress, setPickupAddress] = useState('')
-    const [pincode, setPincode] = useState('')
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    const [slotDateFormatted, setSlotDateFormatted] = useState('')
     const [slotDate, setSlotDate] = useState('')
     const [slotTime, setSlotTime] = useState('')
     const [statusID, setStatusID] = useState('')
@@ -46,20 +42,16 @@ const SingleRequest = ({ props }) => {
                         setError(true)
                         alert(message)
                     } else{
-                        let { ID, req_no, name, mobile, email, pickup, pincode, title, description, slot_date_formatted, 
-                            slot_date, slot_time, status_id, status, request_statuses, createdOn } = data
-                        console.log(request_statuses)
+                        let { req_no, name, mobile, pickup, title, description, slot_date, 
+                            slot_time, status_id, status, request_statuses, createdOn } = data
+                        
                         setError(false)
-                        setRequestID(ID)
                         setRequestNo(req_no)
                         setName(name)
                         setMobile(mobile)
-                        setEmail(email)
                         setPickupAddress(pickup)
-                        setPincode(pincode)
                         setTitle(title)
                         setDescription(description)
-                        setSlotDateFormatted(slot_date_formatted)
                         setSlotDate(slot_date)
                         setSlotTime(slot_time)
                         setStatusID(status_id)

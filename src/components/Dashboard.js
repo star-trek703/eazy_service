@@ -1,4 +1,4 @@
-import { API_URL } from '../config'
+import { API_URL, APP_URL } from '../config'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
@@ -164,9 +164,9 @@ const Dashboard = ({ props }) => {
                             <div className="md-col-3 text-center">
                                 <div className="user-dashboard-info-line">
                                     <div className="user-order-info-value">
-                                        <Link className="btn btn-primary" target="_blank" to={ invoicePath }>
+                                        <a className="btn btn-primary" target="_blank" href={ APP_URL +'/'+ invoicePath }>
                                             Download Invoice
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

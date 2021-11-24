@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import './accordion.css'
@@ -10,59 +10,19 @@ import {
     AccordionItemPanel,
 } from 'react-accessible-accordion';
 
-const Services = () => {
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [mobile, setMobile] = useState('')
-    const [pickupAddress, setPickupAddress] = useState('')
-    const [brand, setBrand] = useState('')
-    const [model, setModel] = useState('')
-    const [color, setColor] = useState('')
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
-    const [slotdate, setslotdate] = useState('')
-    const [amount, seAmount] = useState('')
-    const [pincode, setPincode] = useState('')
-    const [slotTime, setSlotTime] = useState('')
+const Services = ({ props }) => {
+    const [plan, setPlan] = useState('')
 
-    const purchasePlan = () => {
-        // let formData = new FormData()
-        // formData.append('name', name)
-        // formData.append('email', email)
-        // formData.append('mobile', mobile)
-        // formData.append('pick_address', pickupAddress)
-        // formData.append('brand', brand)
-        // formData.append('model', model)
-        // formData.append('color', color)
-        // formData.append('title', title)
-        // formData.append('description', description)
-        // formData.append('slot_date', slotdate)
-        // formData.append('amount', amount)
-        // formData.append('pincode', pincode)
-        // formData.append('slot_time', slotTime)
+    useEffect(() => {
+        let plan_id = localStorage.getItem('plan') ?? ''
+        setPlan(plan_id)
+    }, [])
 
-        // let options = {
-        // method: 'POST',
-        // body: formData
-        // }
+    const purchasePlan = (plan_id) => {
+        setPlan(plan_id)
+        localStorage.setItem('plan', plan_id)
 
-        // fetch(API_URL +"instant_pickup.php", options)
-        // .then(res => res.json())
-        // .then(data => {
-        //     let { error, logged_in } = data
-
-        //     if (! error) {
-        //         // setIsLoggedIn(logged_in)
-        //         // setUserID(data.user_id)
-        //     }
-        //     else{
-        //         // setIsLoggedIn(logged_in)
-        //         // setUserID('')
-
-        //         // localStorage.setItem('logged_in', false)
-        //         // localStorage.setItem('token', '')
-        //     }
-        // })
+        props.history.push('/purchase')
     }
 
     return (
@@ -116,24 +76,27 @@ const Services = () => {
                         </div>
                     </div>
 
-                    <div class="section-head text-center container-md mt-5">
-                        <h2 class="section-title text-upper text-lg" data-inview-showup="showup-translate-right">
+                    <div className="section-head text-center container-md mt-5">
+                        <h2 className="section-title text-upper text-lg" data-inview-showup="showup-translate-right">
                             Our Membership Plans
                         </h2>
                         {/* <p data-inview-showup="showup-translate-left">Here Is Our Pricing Plan</p> */}
                     </div>
-                    <div class="row cols-md rows-md">
-                        <div class="md-col-4 md-col-offs-2">
-                            <div class="price-block simple" data-inview-showup="showup-translate-up">
-                                <div class="price-back"></div>
-                                <div class="price-image">
-                                    <img class="image" src="./assets/images/icons/mobile-dark.png" alt="" />
+                    <div className="row cols-md rows-md">
+                        <div className="md-col-4 md-col-offs-2">
+                            <div className="price-block simple" data-inview-showup="showup-translate-up">
+                                <div className="price-back"></div>
+                                <div className="price-image">
+                                    <img className="image" src="./assets/images/icons/mobile-dark.png" alt="" />
                                 </div>
-                                <div class="price-title">Instant Pickup &amp; Delivery</div>
-                                <div class="price-subtext">starting at...</div>
-                                <div class="price">&#8377;249</div>
-                                <ul class="price-list">
-                                    <h5>Benefits</h5>
+                                <div className="price-title">Instant Pickup &amp; Delivery</div>
+                                <p className="price-description">
+                                    This is a one-time Pickup &amp; Delivery Service at an affordable price. Customers can schedule the device (smartphone) pickup at their convenience in 3 quick steps. No need to login to avail this service, Just schedule the pickup of the device as per convenience. Eazy Service will help customers to get their device repaired from the Authorised Service Center at their fingertip.
+                                </p>
+                                <div className="price-subtext">at just...</div>
+                                <div className="price">&#8377;249</div>
+                                <h5 className="text-left">Benefits</h5>
+                                <ul className="price-list">
                                     <li>One time Quick Service</li>
                                     <li>No Need to visit Authorised Service Center</li>
                                     <li>Free Diagnosis Charge*</li>
@@ -145,20 +108,23 @@ const Services = () => {
                                     <li>Paperless work</li>
                                     <li>Easy Payment method</li>
                                 </ul>
-                                <button class="btn-md btns-bordered btn text-upper" onClick={ purchasePlan }>Buy Now</button>
+                                <button className="btn-md btns-bordered btn text-upper" onClick={ () => purchasePlan(1) }>Buy Now @ &#8377;249</button>
                             </div>
                         </div>
-                        <div class="md-col-4">
-                            <div class="price-block simple" data-inview-showup="showup-translate-up">
-                                <div class="price-back"></div>
-                                <div class="price-image">
-                                    <img class="image" src="./assets/images/icons/notebook-dark.png" alt="" />
+                        <div className="md-col-4">
+                            <div className="price-block simple" data-inview-showup="showup-translate-up">
+                                <div className="price-back"></div>
+                                <div className="price-image">
+                                    <img className="image" src="./assets/images/icons/notebook-dark.png" alt="" />
                                 </div>
-                                <div class="price-title">Eazy Pickup &amp; Delivery Membership</div>
-                                <div class="price-subtext">starting at...</div>
-                                <div class="price">&#8377;649</div>
-                                <ul class="price-list">
-                                    <h5>Benefits</h5>
+                                <div className="price-title">Eazy Pickup &amp; Delivery Membership</div>
+                                <p className="price-description">
+                                    This is a Prime long-term service for 4 years offered by Eazy Service. This service is designed by Eazy Service keeping in mind customer satisfaction &amp; expectations. Membership service offers customers an enhanced dashboard for tracking their service requests at any point of time. Customers can secure 2 devices (smartphones) in this membership plan. Customers will also get Priority pickup &amp; delivery in this plan.
+                                </p>
+                                <div className="price-subtext">at just...</div>
+                                <div className="price">&#8377;649</div>
+                                <h5 className="text-left">Benefits</h5>
+                                <ul className="price-list">
                                     <li>High Priority Pickup &amp; Delivery</li>
                                     <li>Secure 2 devices</li>
                                     <li>4 years of service</li>
@@ -173,7 +139,7 @@ const Services = () => {
                                     <li>Service Dashboard</li>
                                     <li>Easy Payment method</li>
                                 </ul>
-                                <button class="btn-md btns-bordered btn text-upper" onClick={ purchasePlan }>Buy Now</button>
+                                <button className="btn-md btns-bordered btn text-upper" onClick={ () => purchasePlan(0) }>Buy Now @ &#8377;649</button>
                             </div>
                         </div>
                     </div>

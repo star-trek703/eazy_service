@@ -18,6 +18,7 @@ import ForgotPassword from './components/ForgotPassword';
 import SingleRequest from './components/SingleRequest';
 import EditRequest from './components/EditRequest';
 import Services from './components/Services';
+import Purchase from './components/Purchase';
 
 const App = () => {
   var logged_in = localStorage.getItem('logged_in')
@@ -68,8 +69,12 @@ const App = () => {
           <Home setNavbarStatus={ setNavbarStatus } />
         ) } />
 
-        <Route path='/services' render={ () => 
-          <Services setNavbarStatus={ setNavbarStatus } />
+        <Route path='/services' render={ (props) => 
+          <Services props={ props } setNavbarStatus={ setNavbarStatus } />
+        } />
+        
+        <Route path='/purchase' render={ (props) => 
+          <Purchase props={ props } setNavbarStatus={ setNavbarStatus } />
         } />
         
         <Route path='/about-us' render={ () => 

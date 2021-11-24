@@ -3009,6 +3009,10 @@ body.body .text-valid{
     color:#f68f2a;
     min-height:50px
 }
+.price-block.simple .price-description{
+    text-align: justify;
+    height:250px
+}
 .price-block.simple .price-subtext{
     font-size:13px;
     color:#666;
@@ -3018,18 +3022,20 @@ body.body .text-valid{
     font-size:36px;
     color:#35354a;
     font-family:Montserrat;
-    font-weight:300;
+    font-weight:600;
     margin-bottom:30px
 }
 .price-block.simple .price-list{
     margin-bottom:30px;
     text-align: left;
     height: 500px;
+    padding-left: 30px;
 }
 .price-block.simple .price-list li{
     padding-bottom:5px;
     line-height: 2.1;
     font-size: 15px;
+    list-style-type: square;
 }
 /* Short pricing block variation */
  .price-block.short{
@@ -5774,6 +5780,17 @@ a.item-label:hover{
     .user-dashboard-item-price{
         font-size:20px
     }
+
+
+    .price-block.simple .price-list{
+        height: auto;
+    }
+
+    .price-block.simple .price-description{
+        height: auto
+    }
+
+
 }
 @media (min-width:768px){
     .user-dashboard-list{
@@ -5811,11 +5828,50 @@ a.item-label:hover{
     .user-dashboard-orders-list .user-dashboard-item-number{
         width:120px
     }
+
 }
 
 
 
+.price-list li::marker {
+    color: #f68f2a;
+}
 
+/* Multi step form start */
+.multi-step-steps {
+    display: flex;
+}
+
+.multi-step-steps li {
+    background-color: #eee;
+    padding: 11px 25px;
+    font-size: 18px;
+    border: 1px solid #d0d0d0;
+    cursor: pointer;
+}
+
+.multi-step-steps li:nth-child(2) {
+    border-left: none;
+}
+
+.multi-step-steps li:nth-child(3) {
+    border-left: none;
+}
+
+.multi-step-steps li:hover:not(.op-half) {
+    background-color: #ddd;
+}
+
+.multi-step-steps li.active {
+    background-color: #f68f2a;
+    color: #fff;
+    border-color: #f68f2a;
+}
+
+.multi-step-steps li.active:hover {
+    background-color: #f68f2a;
+}
+/* Multi step form end */
 
 
 

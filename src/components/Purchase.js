@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 
 const Purchase = ({ props }) => {
-    const [planID, setPlanID] = useState('')
+    const [planName, setPlanName] = useState('')
     const [planPrice, setPlanPrice] = useState('')
     
     const [showStepOneForm, setShowStepOneForm] = useState(true)
@@ -39,14 +39,14 @@ const Purchase = ({ props }) => {
     const [amount, setAmount] = useState('')
 
     useEffect(() => {
-        let plan_id = localStorage.getItem('plan') ?? ''
-        if (plan_id === "") { props.history.push('/services') }
+        let plan_name = localStorage.getItem('plan') ?? ''
+        if (plan_name === "") { props.history.push('/services') }
         
         let plan_price = ''
-        if (planID == '0') { plan_price = 649 }
-        else if (planID == '1') { plan_price = 249 }
+        if (plan_name == '4years') { plan_price = 649 }
+        else if (plan_name == 'instant') { plan_price = 249 }
 
-        setPlanID(plan_id)
+        setPlanName(plan_name)
         setPlanPrice(plan_price)
         
         setShowStepOneForm(true)
@@ -254,8 +254,8 @@ const Purchase = ({ props }) => {
                 <div className="container">
                     <div className="section-head text-center container-md">
                         <h2 className="section-title text-upper text-lg" data-inview-showup="showup-translate-right">
-                            { (planID == 0) ? 'Eazy Pickup & Delivery Membership' : '' }
-                            { (planID == 1) ? 'Instant Pickup & Delivery' : '' }
+                            { (planName == '4years') ? 'Eazy Pickup & Delivery Membership' : '' }
+                            { (planName == 'instant') ? 'Instant Pickup & Delivery' : '' }
                         </h2>
                         {/* <p data-inview-showup="showup-translate-left">
                             Fill out the application now and save time.
@@ -399,7 +399,7 @@ const Purchase = ({ props }) => {
                             <div className="offs-lg" data-inview-showup="showup-translate-bottom" style={{ display: (showStepThreeForm) ? 'block' : 'none' }}>
                                 <h4>Step 3</h4>
                                 
-                                { (planID == 1) ? 
+                                { (planName == 'instant') ? 
                                     <div>
                                         <div className="field-group">
                                             <label>
@@ -436,7 +436,7 @@ const Purchase = ({ props }) => {
                                         </button>
                                     </div>
                                     <div className="col-6 sm-col-3" data-inview-showup="showup-translate-right">
-                                        <input type="hidden" name="type" value={ planID } />
+                                        <input type="hidden" name="type" value={ planName } />
                                         <input type="hidden" name="amount" value={ planPrice } />
                                         {
                                             (enableSubmitBtn)

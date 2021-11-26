@@ -14,13 +14,13 @@ const Services = ({ props }) => {
     const [plan, setPlan] = useState('')
 
     useEffect(() => {
-        let plan_id = localStorage.getItem('plan') ?? ''
-        setPlan(plan_id)
+        let plan_name = localStorage.getItem('plan') ?? ''
+        setPlan(plan_name)
     }, [])
 
-    const purchasePlan = (plan_id) => {
-        setPlan(plan_id)
-        localStorage.setItem('plan', plan_id)
+    const purchasePlan = (plan_name) => {
+        setPlan(plan_name)
+        localStorage.setItem('plan', plan_name)
 
         props.history.push('/purchase')
     }
@@ -108,7 +108,7 @@ const Services = ({ props }) => {
                                     <li>Paperless work</li>
                                     <li>Easy Payment method</li>
                                 </ul>
-                                <button className="btn-md btns-bordered btn text-upper" onClick={ () => purchasePlan(1) }>Buy Now @ &#8377;249</button>
+                                <button className="btn-md btns-bordered btn text-upper" onClick={ () => purchasePlan('instant') }>Buy Now @ &#8377;249</button>
                             </div>
                         </div>
                         <div className="md-col-4">
@@ -139,7 +139,7 @@ const Services = ({ props }) => {
                                     <li>Service Dashboard</li>
                                     <li>Easy Payment method</li>
                                 </ul>
-                                <button className="btn-md btns-bordered btn text-upper" onClick={ () => purchasePlan(0) }>Buy Now @ &#8377;649</button>
+                                <button className="btn-md btns-bordered btn text-upper" onClick={ () => purchasePlan('4years') }>Buy Now @ &#8377;649</button>
                             </div>
                         </div>
                     </div>

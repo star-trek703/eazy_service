@@ -248,7 +248,7 @@ const NewRequest = ({ props, userID }) => {
                                         <select className="field-control" name="time_slot" value={ timeSlot } onChange={ (e) => setTimeSlot(e.target.value) } placeholder="Time Slot" required="">
                                             <option value="">Select Time Slot</option>
                                             { timeSlots.map(timeSlot => (
-                                                <option key={ timeSlot.ID } value={ timeSlot.time_slot } style={{ display: (pickupDate === minDate && timeSlot.time_to < currHour) ? 'none' : 'block' }}>{ timeSlot.time_slot }</option>
+                                                <option key={ timeSlot.ID } value={ timeSlot.time_slot } style={{ display: (pickupDate === minDate && timeSlot.time_from <= currHour) ? 'none' : 'block' }}>{ timeSlot.time_slot }</option>
                                             )) }
                                         </select>
                                         <span className="select-arrow">

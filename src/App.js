@@ -19,6 +19,7 @@ import SingleRequest from './components/SingleRequest';
 import EditRequest from './components/EditRequest';
 import Services from './components/Services';
 import Purchase from './components/Purchase';
+import RefundCancellationPolicy from './components/RefundCancellationPolicy';
 
 const App = () => {
   var logged_in = localStorage.getItem('logged_in')
@@ -125,6 +126,7 @@ const App = () => {
 
         <Route path='/terms' component={ Terms } />
         <Route path='/privacy' component={ PrivacyPolicy } />
+        <Route path='/refund-policy' component={ RefundCancellationPolicy } />
 
         <Route>
           <PageNotFound />

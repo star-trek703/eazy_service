@@ -56,33 +56,7 @@ const Purchase = ({ props }) => {
         setEnableStepOneForm(true)
         setEnableStepTwoForm(false)
         setEnableStepThreeForm(false)
-
-        let stored_name = localStorage.getItem('name') ?? ''
-        let stored_email = localStorage.getItem('email') ?? ''
-        let stored_mobile = localStorage.getItem('mobile') ?? ''
-        let stored_address = localStorage.getItem('address') ?? ''
-        let stored_pincode = localStorage.getItem('pincode') ?? ''
-        let stored_brand = localStorage.getItem('brand') ?? ''
-        let stored_model = localStorage.getItem('model') ?? ''
-        let stored_device_color = localStorage.getItem('device_color') ?? ''
-        let stored_imei = localStorage.getItem('imei') ?? ''
-        // let stored_invoice = localStorage.getItem('invoice') ?? ''
-        let stored_slot_date = localStorage.getItem('slot_date') ?? ''
-        let stored_slot_time = localStorage.getItem('slot_time') ?? ''
-
-        setName(stored_name)
-        setEmail(stored_email)
-        setMobile(stored_mobile)
-        setPickupAddress(stored_address)
-        setPinCode(stored_pincode)
-        setBrand(stored_brand)
-        setModel(stored_model)
-        setDeviceColor(stored_device_color)
-        setIMEI(stored_imei)
-        // setInvoice(stored_invoice)
-        setSlotDate(stored_slot_date)
-        setSlotTime(stored_slot_time)
-
+        
         // min date
         let dt = new Date()
         let min_date = dt.getFullYear() +"-"+ (dt.getMonth() + 1).toString().padStart(2, 0) +"-"+ (dt.getDate()).toString().padStart(2, 0)
@@ -145,19 +119,6 @@ const Purchase = ({ props }) => {
 
     
     useEffect(() => {
-        localStorage.setItem('name', name)
-        localStorage.setItem('email', email)
-        localStorage.setItem('mobile', mobile)
-        localStorage.setItem('address', pickupAddress)
-        localStorage.setItem('pincode', pinCode)
-        localStorage.setItem('brand', brand)
-        localStorage.setItem('model', model)
-        localStorage.setItem('device_color', deviceColor)
-        localStorage.setItem('imei', IMEI)
-        // localStorage.setItem('invoice', invoice)
-        localStorage.setItem('slot_date', slotDate)
-        localStorage.setItem('slot_time', slotTime)
-
         if (name !== "" && email !== "" && mobile !== "" && pickupAddress !== "" && pinCode !== "") {
             setEnableStepTwoForm(true)
         } else {
@@ -180,44 +141,7 @@ const Purchase = ({ props }) => {
 
     }, [name, email, mobile, pickupAddress, pinCode, brand, model, deviceColor, IMEI, invoice, slotDate, slotTime])
 
-    const handlePlanPurchase = () => {
-        let formData = new FormData()
-        formData.append('name', name)
-        formData.append('email', email)
-        formData.append('mobile', mobile)
-        formData.append('pick_address', pickupAddress)
-        formData.append('brand', brand)
-        formData.append('model', model)
-        formData.append('color', deviceColor)
-        formData.append('slot_date', slotDate)
-        formData.append('amount', amount)
-        formData.append('pincode', pinCode)
-        formData.append('slot_time', slotTime)
-
-        // let options = {
-        // method: 'POST',
-        // body: formData
-        // }
-
-        // fetch(API_URL +"instant_pickup.php", options)
-        // .then(res => res.json())
-        // .then(data => {
-        //     let { error, logged_in } = data
-
-        //     if (! error) {
-        //         // setIsLoggedIn(logged_in)
-        //         // setUserID(data.user_id)
-        //     }
-        //     else{
-        //         // setIsLoggedIn(logged_in)
-        //         // setUserID('')
-
-        //         // localStorage.setItem('logged_in', false)
-        //         // localStorage.setItem('token', '')
-        //     }
-        // })
-    }
-
+    
     return (
         <div>
             <Helmet>
@@ -265,21 +189,24 @@ const Purchase = ({ props }) => {
                         <ul className="multi-step-steps">
                             <li className={ `${ (showStepOneForm) ? 'active' : '' } ${ (!enableStepOneForm) ? 'op-half' : '' }` }
                              onClick={ () => { if(enableStepOneForm) { setShowStepOneForm(true); setShowStepTwoForm(false); setShowStepThreeForm(false); } } }>
-                                Step 1
+                                1. Basic details
                             </li>
                             <li className={ `${ (showStepTwoForm) ? 'active' : '' } ${ (!enableStepTwoForm) ? 'op-half' : '' }` }
                              onClick={ () => { if(enableStepTwoForm) { setShowStepOneForm(false); setShowStepTwoForm(true); setShowStepThreeForm(false); } } }>
-                                Step 2
+                                2. Mobile details
                             </li>
+
+                            { (planName == 'instant') ? 
                             <li className={ `${ (showStepThreeForm) ? 'active' : '' } ${ (!enableStepThreeForm) ? 'op-half' : '' }` }
                              onClick={ () => { if(enableStepThreeForm) { setShowStepOneForm(false); setShowStepTwoForm(false); setShowStepThreeForm(true); } } }>
-                                Step 3
+                                3. Schedule Pickup
                             </li>
+                            : '' }
                         </ul>
 
-                        <form className="new-ticket mt-3" action={ API_URL +'instant_pickup.php' } method="POST" encType="multipart/form-data" onSubmit={ handlePlanPurchase }>
+                        <form className="new-ticket mt-3" action={ API_URL +'instant_pickup.php' } method="POST" encType="multipart/form-data">
                             <div className="offs-lg" data-inview-showup="showup-translate-bottom" style={{ display: (showStepOneForm) ? 'block' : 'none' }}>
-                                <h4>Step 1</h4>
+                                <h4>1. Basic details</h4>
 
                                 <div className="field-group">
                                     <div className="field-wrap">
@@ -335,7 +262,7 @@ const Purchase = ({ props }) => {
                             </div>
 
                             <div className="offs-lg" data-inview-showup="showup-translate-bottom" style={{ display: (showStepTwoForm) ? 'block' : 'none' }}>
-                                <h4>Step 2</h4>
+                                <h4>2. Mobile details</h4>
 
                                 <div className="field-group chosen-field">
                                     <div className="field-wrap">
@@ -374,8 +301,9 @@ const Purchase = ({ props }) => {
                                 </div>
 
                                 <div className="field-group">
+                                    <label htmlFor="bill_photo" style={{ color: '#777' }}>Mobile Invoice copy</label>
                                     <div className="field-wrap">
-                                        <input className="field-control" type="file" name="bill_photo" value={ invoice } onChange={ (e) => setInvoice(e.target.value) } placeholder="Upload Invoice" required="" />
+                                        <input className="field-control" type="file" name="bill_photo" id="bill_photo" value={ invoice } onChange={ (e) => setInvoice(e.target.value) } placeholder="Upload Invoice" required="" />
                                         <span className="field-back"></span>
                                     </div>
                                 </div>
@@ -387,17 +315,36 @@ const Purchase = ({ props }) => {
                                             Previous
                                         </button>
                                     </div>
+                                    
+                                    { (planName == 'instant') ? 
+                                    <div>
+                                        <input type="hidden" name="type" value={ planName } />
+                                        <input type="hidden" name="amount" value={ planPrice } />
+                                    </div>
+                                    : '' }
+                                    
+                                    { (planName == 'instant') ? 
                                     <div className="col-6 sm-col-3" data-inview-showup="showup-translate-left">
                                         <button className={ `btn col-12 btns-bordered text-upper ${ (!enableStepThreeForm) ? 'disabled op-half' : '' }` } type="button"
                                          onClick={ () => { if(enableStepThreeForm) { setShowStepOneForm(false); setShowStepTwoForm(false); setShowStepThreeForm(true); } } }>
                                             Next
                                         </button>
                                     </div>
+                                    
+                                    : (enableSubmitBtn)
+                                        ? <div className="col-6 sm-col-3" data-inview-showup="showup-translate-left">
+                                            <button className="btn col-12 text-upper" type="submit">Submit</button>
+                                        </div>
+                                        : <div className="col-6 sm-col-3" data-inview-showup="showup-translate-left">
+                                            <button className="btn col-12 text-upper disabled op-half" type="submit" disabled={ true }>Submit</button>
+                                        </div>
+                                    }
                                 </div>
                             </div>
-
+                            
+                            { (planName == 'instant') ? 
                             <div className="offs-lg" data-inview-showup="showup-translate-bottom" style={{ display: (showStepThreeForm) ? 'block' : 'none' }}>
-                                <h4>Step 3</h4>
+                                <h4>3. Schedule Pickup</h4>
                                 
                                 { (planName == 'instant') ? 
                                     <div>
@@ -416,7 +363,7 @@ const Purchase = ({ props }) => {
                                                 <select className="field-control" name="slot_time" value={ slotTime } onChange={ (e) => setSlotTime(e.target.value) } placeholder="Time Slot" required="">
                                                     <option value="">Select Time Slot</option>
                                                     { timeSlots.map(timeSlot => (
-                                                        <option key={ timeSlot.ID } value={ timeSlot.time_slot } style={{ display: (slotDate === minDate && timeSlot.time_to < currHour) ? 'none' : 'block' }}>{ timeSlot.time_slot }</option>
+                                                        <option key={ timeSlot.ID } value={ timeSlot.time_slot } style={{ display: (slotDate === minDate && timeSlot.time_from <= currHour) ? 'none' : 'block' }}>{ timeSlot.time_slot }</option>
                                                     )) }
                                                 </select>
                                                 <span className="select-arrow">
@@ -446,6 +393,7 @@ const Purchase = ({ props }) => {
                                     </div>
                                 </div>
                             </div>
+                            : '' }
                         </form>
                     </div>
                 </div>

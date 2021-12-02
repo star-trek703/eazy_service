@@ -49,6 +49,9 @@ const AboutUs = ({ navbarStatus, setNavbarStatus }) => {
                                 Eazy Service is  formed with a vision to minimize the G-A-P between customers &amp; Authorized Service Centers. We are into providing pick up and drop services to our clients on their fingertip. We will engage in delivering and submitting devices on behalf of our customers to particular Authorized Service Centers for repairs or servicing. Eazy Service ensures that devices are delivered safely and on time. Our main aim is to Save Customer’s valuable Time &amp; Efforts.
                             </p>
                             <p>
+                            We Provide two types of Services - Instant Pick & Delivery and Eazy Pick & Delivery Membership Plan. Both the services mainly aim at saving Customers valuable time & efforts at a very affordable cost.
+                            </p>
+                            <p>
                                 Our hassle-free &amp; reliable device pickup service is widely available across Electronic Retail Stores. We ensure to give our customers the most relaxing experience by just seating at home because we believe customers’ time and efforts are most valuable.
                             </p>
                             <h2 className="text-upper text-semibold mt-5">

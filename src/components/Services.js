@@ -122,7 +122,7 @@ const Services = ({ props }) => {
                                     This is a Prime long-term service for 4 years offered by Eazy Service. This service is designed by Eazy Service keeping in mind customer satisfaction &amp; expectations. Membership service offers customers an enhanced dashboard for tracking their service requests at any point of time. Customers can secure 2 devices (smartphones) in this membership plan. Customers will also get Priority pickup &amp; delivery in this plan.
                                 </p>
                                 <div className="price-subtext">at just...</div>
-                                <div className="price">&#8377;649</div>
+                                <div className="price">&#8377;699</div>
                                 <h5 className="text-left">Benefits</h5>
                                 <ul className="price-list">
                                     <li>High Priority Pickup &amp; Delivery</li>
@@ -139,7 +139,7 @@ const Services = ({ props }) => {
                                     <li>Service Dashboard</li>
                                     <li>Easy Payment method</li>
                                 </ul>
-                                <button className="btn-md btns-bordered btn text-upper" onClick={ () => purchasePlan('4years') }>Buy Now @ &#8377;649</button>
+                                <button className="btn-md btns-bordered btn text-upper" onClick={ () => purchasePlan('4years') }>Buy Now @ &#8377;699</button>
                             </div>
                         </div>
                     </div>

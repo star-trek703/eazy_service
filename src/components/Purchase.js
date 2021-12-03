@@ -131,8 +131,12 @@ const Purchase = ({ props }) => {
             setEnableStepThreeForm(false)
         }
         
-        if (name !== "" && email !== "" && mobile !== "" && pickupAddress !== "" && pinCode !== "" && 
+        if (planName == '4years' && name !== "" && email !== "" && mobile !== "" && pickupAddress !== "" && pinCode !== "" && 
             brand !== "" && model !== "" && deviceColor !== "" && IMEI !== "" && invoice !== "") {
+            setEnableSubmitBtn(true)
+        }
+        else if (planName == 'instant' && name !== "" && email !== "" && mobile !== "" && pickupAddress !== "" && pinCode !== "" && 
+            brand !== "" && model !== "" && deviceColor !== "" && IMEI !== "" && invoice !== "" && slotDate !== "" && slotTime !== "") {
             setEnableSubmitBtn(true)
         }
         else {
@@ -316,7 +320,7 @@ const Purchase = ({ props }) => {
                                         </button>
                                     </div>
                                     
-                                    { (planName == 'instant') ? 
+                                    { (planName == '4years') ? 
                                     <div>
                                         <input type="hidden" name="type" value={ planName } />
                                         <input type="hidden" name="amount" value={ planPrice } />

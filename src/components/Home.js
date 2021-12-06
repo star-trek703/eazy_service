@@ -267,7 +267,7 @@ const Home = ({ navbarStatus, setNavbarStatus }) => {
                 <div className="container-fluid">
                     <div className="section-head text-center container-md">
                         <h2 className="section-title text-upper text-lg" data-inview-showup="showup-translate-right">
-                            Service Partners
+                            Brands We Accept
                         </h2>
                     </div>
                     <div id="partners-carousel" className="row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>

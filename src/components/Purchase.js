@@ -43,7 +43,7 @@ const Purchase = ({ props }) => {
         if (plan_name === "") { props.history.push('/services') }
         
         let plan_price = ''
-        if (plan_name == '4years') { plan_price = 649 }
+        if (plan_name == '4years') { plan_price = 699 }
         else if (plan_name == 'instant') { plan_price = 249 }
 
         setPlanName(plan_name)

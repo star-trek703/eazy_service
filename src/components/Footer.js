@@ -26,8 +26,9 @@ const Footer = () => {
                                         <div className="sm-col-4">
                                             <div className="footer-title alt-color text-upper">Contacts</div>
                                             <div className="footer-text">
-                                                +91 8425879810<br />
-                                                support@eazyservice.co.in
+                                                <div>+91 8425879810</div>
+                                                <div>support@eazyservice.co.in</div>
+                                                <div className="mt-2">412, Dwarkamai, Kumbharkhanpada, Dombivli W, Maharashtra, 421202</div>
                                             </div>
                                         </div>
                                         <div className="sm-col-4">

@@ -34,6 +34,8 @@ const Purchase = ({ props }) => {
     const [deviceColor, setDeviceColor] = useState('')
     const [IMEI, setIMEI] = useState('')
     const [invoice, setInvoice] = useState('')
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
     const [slotDate, setSlotDate] = useState('')
     const [slotTime, setSlotTime] = useState('')
     const [amount, setAmount] = useState('')
@@ -125,25 +127,29 @@ const Purchase = ({ props }) => {
             setEnableStepTwoForm(false)
         }
         
-        if (brand !== "" && model !== "" && deviceColor !== "" && IMEI !== "" && invoice !== "") {
+        if (planName == '4years' && brand !== "" && model !== "" && deviceColor !== "") {
             setEnableStepThreeForm(true)
-        } else {
+        }
+        else if (planName == 'instant' && brand !== "" && model !== "" && deviceColor !== "" && title !== "" && description !== "") {
+            setEnableStepThreeForm(true)
+        }
+        else {
             setEnableStepThreeForm(false)
         }
         
         if (planName == '4years' && name !== "" && email !== "" && mobile !== "" && pickupAddress !== "" && pinCode !== "" && 
-            brand !== "" && model !== "" && deviceColor !== "" && IMEI !== "" && invoice !== "") {
+            brand !== "" && model !== "" && deviceColor !== "") {
             setEnableSubmitBtn(true)
         }
         else if (planName == 'instant' && name !== "" && email !== "" && mobile !== "" && pickupAddress !== "" && pinCode !== "" && 
-            brand !== "" && model !== "" && deviceColor !== "" && IMEI !== "" && invoice !== "" && slotDate !== "" && slotTime !== "") {
+            brand !== "" && model !== "" && deviceColor !== "" && title !== "" && description !== "" && slotDate !== "" && slotTime !== "") {
             setEnableSubmitBtn(true)
         }
         else {
             setEnableSubmitBtn(false)
         }
 
-    }, [name, email, mobile, pickupAddress, pinCode, brand, model, deviceColor, IMEI, invoice, slotDate, slotTime])
+    }, [name, email, mobile, pickupAddress, pinCode, brand, model, deviceColor, IMEI, invoice, title, description, slotDate, slotTime])
 
     
     return (
@@ -299,7 +305,7 @@ const Purchase = ({ props }) => {
 
                                 <div className="field-group">
                                     <div className="field-wrap">
-                                        <input className="field-control" type="text" name="imei" value={ IMEI } onChange={ (e) => setIMEI(e.target.value) } placeholder="Enter IMEI" required="" />
+                                        <input className="field-control" type="text" name="imei" value={ IMEI } onChange={ (e) => setIMEI(e.target.value) } placeholder="Enter IMEI" />
                                         <span className="field-back"></span>
                                     </div>
                                 </div>
@@ -307,10 +313,29 @@ const Purchase = ({ props }) => {
                                 <div className="field-group">
                                     <label htmlFor="bill_photo" style={{ color: '#777' }}>Mobile Invoice copy</label>
                                     <div className="field-wrap">
-                                        <input className="field-control" type="file" name="bill_photo" id="bill_photo" value={ invoice } onChange={ (e) => setInvoice(e.target.value) } placeholder="Upload Invoice" required="" />
+                                        <input className="field-control" type="file" name="bill_photo" id="bill_photo" value={ invoice } onChange={ (e) => setInvoice(e.target.value) } placeholder="Upload Invoice" />
                                         <span className="field-back"></span>
                                     </div>
+                                    <div className="mt-2"><strong>Note:</strong> Bill Photo Copy is mandatory if the Device is within Warranty Period</div>
                                 </div>
+                                
+                                { (planName == 'instant') ? 
+                                <div className="mt-3">
+                                    <div className="field-group">
+                                        <div className="field-wrap">
+                                            <input className="field-control" type="text" name="title" value={ title } onChange={ (e) => setTitle(e.target.value) } placeholder="Enter Title" required="" />
+                                            <span className="field-back"></span>
+                                        </div>
+                                    </div>
+
+                                    <div className="field-group">
+                                        <div className="field-wrap">
+                                            <textarea className="field-control" type="text" name="description" value={ description } onChange={ (e) => setDescription(e.target.value) } placeholder="Enter Description" required=""></textarea>
+                                            <span className="field-back"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                : '' }
 
                                 <div className="row cols-lg mt-4">
                                     <div className="col-6 sm-col-3 sm-col-offs-3" data-inview-showup="showup-translate-right">

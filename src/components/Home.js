@@ -29,6 +29,9 @@ const Home = ({ navbarStatus, setNavbarStatus }) => {
                             <div>
                                 <img src="/assets/images/slider/new/Homepage Design 3.jpg" alt="" />
                             </div>
+                            <div>
+                                <img src="/assets/images/slider/new/Homepage Design 4.jpg" alt="" />
+                            </div>
                         </Carousel>
                     </div>
                 </div>

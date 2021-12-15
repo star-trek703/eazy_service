@@ -78,7 +78,7 @@ const Services = ({ props }) => {
 
                     <div className="section-head text-center container-md mt-5">
                         <h2 className="section-title text-upper text-lg" data-inview-showup="showup-translate-right">
-                            Our Membership Plans
+                            Our Service Plans
                         </h2>
                         {/* <p data-inview-showup="showup-translate-left">Here Is Our Pricing Plan</p> */}
                     </div>
@@ -87,7 +87,7 @@ const Services = ({ props }) => {
                             <div className="price-block simple" data-inview-showup="showup-translate-up">
                                 <div className="price-back"></div>
                                 <div className="price-image">
-                                    <img className="image" src="./assets/images/icons/mobile-dark.png" alt="" />
+                                    <img className="image" src="/assets/images/service/mobile-single.png" alt="" />
                                 </div>
                                 <div className="price-title">Instant Pickup &amp; Delivery</div>
                                 <p className="price-description">
@@ -115,7 +115,7 @@ const Services = ({ props }) => {
                             <div className="price-block simple" data-inview-showup="showup-translate-up">
                                 <div className="price-back"></div>
                                 <div className="price-image">
-                                    <img className="image" src="./assets/images/icons/notebook-dark.png" alt="" />
+                                    <img className="image" src="/assets/images/service/mobile-multiple.png" alt="" />
                                 </div>
                                 <div className="price-title">Eazy Pickup &amp; Delivery Membership</div>
                                 <p className="price-description">

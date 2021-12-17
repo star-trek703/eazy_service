@@ -31,7 +31,7 @@ const Footer = () => {
                                                 <div className="mt-2">412, Dwarkamai, Kumbharkhanpada, Dombivli W, Maharashtra, 421202</div>
                                             </div>
                                         </div>
-                                        <div className="sm-col-4">
+                                        <div className="sm-col-5">
                                             <div className="footer-title alt-color text-upper">Useful links</div>
                                             <div className="footer-text">
                                                 <ul>
@@ -47,7 +47,7 @@ const Footer = () => {
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div className="sm-col-4">
+                                        <div className="sm-col-3">
                                             <div className="footer-title alt-color text-upper">Socials</div>
                                             <div className="cols-list socials cols-sm inline-block">
                                                 <a href="https://www.instagram.com/eazy__service/" className="list-item" target="_blank" rel="noreferrer">

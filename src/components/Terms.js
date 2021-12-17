@@ -73,15 +73,6 @@ const Terms = () => {
                                 <li>Eazy Service will not be responsible for any changes in the Terms & Conditions of the Authorised Service Center. Eazy Service & Authorised Service Center are both separate entities</li>
                             </ol>
 
-                            <h4>For Eazy Service Policy (General) -</h4>
-                            <ol className="list-unstyled">
-                                <li>This Service is applicable for new devices, only for those phones which billing date is within 30 days</li>
-                                <li>Service is applicable only for one device, also it will be non-transferable and non-refundable</li>
-                                <li>Service is applicable only for selected pin codes</li>
-                                <li>Service validity is for 3 years from date of service purchased (15 service requests)</li>
-                                <li>If the device is lost /theft /damaged by Eazy Service, will be compensated accordingly depending on device current market value</li>
-                            </ol>
-
                             <h4>Pickup &amp; Drop</h4>
                             <h6>For Instant Pickup & Delivery</h6>
                             <ol className="list-unstyled">
@@ -118,14 +109,14 @@ const Terms = () => {
 
                             <h4>Device Accountability</h4>
                             <ol className="list-unstyled">
-                                <li>We are not liable for any loss / damage to device through service center</li>
-                                <li>While taking device from customer Eazy service executive will capture photos of the device &amp; will share to the customer. Same will be done while taking back device from Service Center.</li>
-                                <li>Sim card, Memory card, Back Cover or any other accessories  should remove before submitting the device to our executive</li>
-                                <li>The Repair Quotation/Repair Invoice should be in the name of device owner</li>
+                                <li>We are not liable for any loss/damage to the device by the Authorised service center</li>
+                                <li>While collecting the device from customer Eazy service executive will capture photos of the device & will share them with the customer. The same process will be followed while taking back the device from the Authorised Service Center</li>
+                                <li>Sim card, Memory card, Back Cover, or any other accessories should remove before submitting the device to our executive</li>
+                                <li>The Repair Quotation/Repair Invoice will be in the name of the device owner</li>
                                 <li>Tax benefits/liabilities of the repair amount stuck with brand authorized service center and the device owner</li>
-                                <li>Eazy Service do not have any rights check/modify the operation of the service center.</li>
-                                <li>After repair of the device the warranty part should stuck with Device or Service Center policy.</li>
-                                <li>Eazy Service is not liable for any type of misappropriate behavior with Device which was submitted in Brand Authorized Service Center during the period of Repair.</li>
+                                <li>Eazy Service does not have any right to check/modify the operation of the service center</li>
+                                <li>After repair of the device, the warranty part should stuck with Device or Service Center policy</li>
+                                <li>Eazy Service is not liable for any type of misappropriate behavior with the Device which was submitted to the Authorized Service Center during the period of Repair</li>
                             </ol>
                             
                             <h4>Payment</h4>

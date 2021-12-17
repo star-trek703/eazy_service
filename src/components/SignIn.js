@@ -113,7 +113,7 @@ const SignIn = ({ props, setIsLoggedIn }) => {
                                         <div className="row cols-md offs-md">
                                             <div className="col-6">
                                                 <div className="field-group">
-                                                    <label>By sign in you accept all the <Link target="_blank" to="/assets/Terms.pdf">terms &amp; conditions</Link></label>
+                                                    <label>By sign in you accept all the <Link to="/terms">terms &amp; conditions</Link></label>
                                                 </div>
                                             </div>
                                             <div className="col-6 text-right shift-xs">

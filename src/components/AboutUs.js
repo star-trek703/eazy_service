@@ -58,7 +58,7 @@ const AboutUs = ({ navbarStatus, setNavbarStatus }) => {
                                 Our Process
                             </h2>
                             <div className="md-col-6 md-fix-container mx-auto">
-                                <img className="image" src="/assets/images/service/About.png" alt="" />
+                                <img className="image" src="/assets/images/service/Service-Cycle-Main-2-min.png" alt="" />
                             </div>
                         </div>
                     </div>

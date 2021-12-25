@@ -27,9 +27,10 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(logged_in)
   const [userID, setUserID] = useState('')
   
-  const [navbarStatus, setNavbarStatus] = useState(true)
+  const [navbarStatus, setNavbarStatus] = useState(false)
   
   useEffect(() => {
+    // setNavbarStatus(!navbarStatus)
     let token = localStorage.getItem('token')
 
     let formData = new FormData()
@@ -63,11 +64,11 @@ const App = () => {
     <Router>
       
       <ScrollTop />
-      <Navbar navbarStatus={ navbarStatus } isLoggedIn={ isLoggedIn } setIsLoggedIn={ setIsLoggedIn } />
+      <Navbar navbarStatus={ navbarStatus } setNavbarStatus={ setNavbarStatus } isLoggedIn={ isLoggedIn } setIsLoggedIn={ setIsLoggedIn } />
 
       <Switch>
         <Route path='/' exact render={ () => (
-          <Home setNavbarStatus={ setNavbarStatus } />
+          <Home navbarStatus={ navbarStatus } setNavbarStatus={ setNavbarStatus } />
         ) } />
 
         <Route path='/services' render={ (props) => 

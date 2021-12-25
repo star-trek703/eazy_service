@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 const AboutUs = ({ navbarStatus, setNavbarStatus }) => {
     useEffect(() => {
-        setNavbarStatus(false)
-        console.log(navbarStatus)
+        // setNavbarStatus(false)
+        // console.log(navbarStatus)
     }, [])
 
     return (
@@ -57,7 +57,7 @@ const AboutUs = ({ navbarStatus, setNavbarStatus }) => {
                             <h2 className="text-upper text-semibold mt-5">
                                 Our Process
                             </h2>
-                            <div className="md-col-6 md-fix-container mx-auto">
+                            <div className="md-col-8 md-fix-container mx-auto">
                                 <img className="image" src="/assets/images/service/Service-Cycle-Main-2-min.png" alt="" />
                             </div>
                         </div>

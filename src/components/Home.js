@@ -6,8 +6,10 @@ import { useEffect } from 'react'
 
 const Home = ({ navbarStatus, setNavbarStatus }) => {
     useEffect(() => {
-        setNavbarStatus(false)
-        console.log(navbarStatus)
+        if(!navbarStatus) {
+            setNavbarStatus(false)
+            console.log('dsds')
+        }
     }, [])
 
     return (
@@ -349,88 +351,80 @@ const Home = ({ navbarStatus, setNavbarStatus }) => {
                     </div>
                                         
                     <div id="partners-carousel-mobile" className="row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <div className="carousel-root" tabIndex="0">
-                            <div className="carousel carousel-slider" style={{ width: '100%' }}>
-                                <button type="button" aria-label="previous slide / item" className="control-arrow control-prev control-disabled"></button>
-                                <div className="slider-wrapper axis-horizontal">
-                                    <ul className="slider animated" style={{ transform: 'translate3d(0px, 0px, 0px)', transitionDuration: '350ms' }}>
-                                        <li className="slide selected">
-                                            <div style={{ marginBottom: '45px' }}>
-                                                <Link className="grayscale-link" to="#">
-                                                    <img className="image" src="/assets/pngs/global-samsung-logo.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
-                                                    <p className="text-center pt-2">Unique Telecom</p>
-                                                </Link>
-                                            </div>
-                                        </li>
-                                        <li className="slide">
-                                            <div style={{ marginBottom: '45px' }}>
-                                                <Link className="grayscale-link" to="#">
-                                                    <img className="image" src="/assets/pngs/OnePlus_logo.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
-                                                    <p className="text-center pt-2">S.S. Services</p>
-                                                </Link>
-                                            </div>
-                                        </li>
-                                        <li className="slide">
-                                            <div style={{ marginBottom: '45px' }}>
-                                                <Link className="grayscale-link" to="#">
-                                                    <img className="image" src="/assets/pngs/Xiaomi_logo_(2021-).png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
-                                                    <p className="text-center pt-2">Unique Telecom</p>
-                                                </Link>
-                                            </div>
-                                        </li>
-                                        <li className="slide">
-                                            <div style={{ marginBottom: '45px' }}>
-                                                <Link className="grayscale-link" to="#">
-                                                    <img className="image" src="/assets/pngs/ASUS_Logo.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
-                                                    <p className="text-center pt-2">TVS Electronics</p>
-                                                </Link>
-                                            </div>
-                                        </li>
-                                        <li className="slide">
-                                            <div style={{ marginBottom: '45px' }}>
-                                                <Link className="grayscale-link" to="#">
-                                                    <img className="image" src="/assets/pngs/download.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
-                                                    <p className="text-center pt-2">S.S. Services</p>
-                                                </Link>
-                                            </div>
-                                        </li>
-                                        <li className="slide">
-                                            <div style={{ marginBottom: '45px' }}>
-                                                <Link className="grayscale-link" to="#">
-                                                    <img className="image" src="/assets/pngs/Motorola_new_logo.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
-                                                    <p className="text-center pt-2">S.S. Services</p>
-                                                </Link>
-                                            </div>
-                                        </li>
-                                        <li className="slide">
-                                            <div style={{ marginBottom: '45px' }}>
-                                                <Link className="grayscale-link" to="#">
-                                                    <img className="image" src="/assets/pngs/Nokia_wordmark.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
-                                                    <p className="text-center pt-2">S.S. Services</p>
-                                                </Link>
-                                            </div>
-                                        </li>
-                                        <li className="slide">
-                                            <div style={{ marginBottom: '45px' }}>
-                                                <Link className="grayscale-link" to="#">
-                                                    <img className="image" src="/assets/pngs/Huawei_Honor_Logo.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
-                                                    <p className="text-center pt-2">S.S. Services</p>
-                                                </Link>
-                                            </div>
-                                        </li>
-                                        <li className="slide">
-                                            <div style={{ marginBottom: '45px' }}>
-                                                <Link className="grayscale-link" to="#">
-                                                    <img className="image" src="/assets/pngs/Lenovo_logo_2015.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
-                                                    <p className="text-center pt-2">S.S. Services</p>
-                                                </Link>
-                                            </div>
-                                        </li>
-                                    </ul>
+                        <Carousel showArrows={ true } showThumbs={ false } showStatus={ false } swipeable={ true } emulateTouch={ true }>
+                            <li className="slide selected">
+                                <div style={{ marginBottom: '45px' }}>
+                                    <Link className="grayscale-link" to="#">
+                                        <img className="image" src="/assets/pngs/global-samsung-logo.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
+                                        <p className="text-center pt-2">Unique Telecom</p>
+                                    </Link>
                                 </div>
-                                <button type="button" aria-label="next slide / item" className="control-arrow control-next control-disabled"></button>
-                            </div>
-                        </div>
+                            </li>
+                            <li className="slide">
+                                <div style={{ marginBottom: '45px' }}>
+                                    <Link className="grayscale-link" to="#">
+                                        <img className="image" src="/assets/pngs/OnePlus_logo.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
+                                        <p className="text-center pt-2">S.S. Services</p>
+                                    </Link>
+                                </div>
+                            </li>
+                            <li className="slide">
+                                <div style={{ marginBottom: '45px' }}>
+                                    <Link className="grayscale-link" to="#">
+                                        <img className="image" src="/assets/pngs/Xiaomi_logo_(2021-).png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
+                                        <p className="text-center pt-2">Unique Telecom</p>
+                                    </Link>
+                                </div>
+                            </li>
+                            <li className="slide">
+                                <div style={{ marginBottom: '45px' }}>
+                                    <Link className="grayscale-link" to="#">
+                                        <img className="image" src="/assets/pngs/ASUS_Logo.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
+                                        <p className="text-center pt-2">TVS Electronics</p>
+                                    </Link>
+                                </div>
+                            </li>
+                            <li className="slide">
+                                <div style={{ marginBottom: '45px' }}>
+                                    <Link className="grayscale-link" to="#">
+                                        <img className="image" src="/assets/pngs/download.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
+                                        <p className="text-center pt-2">S.S. Services</p>
+                                    </Link>
+                                </div>
+                            </li>
+                            <li className="slide">
+                                <div style={{ marginBottom: '45px' }}>
+                                    <Link className="grayscale-link" to="#">
+                                        <img className="image" src="/assets/pngs/Motorola_new_logo.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
+                                        <p className="text-center pt-2">S.S. Services</p>
+                                    </Link>
+                                </div>
+                            </li>
+                            <li className="slide">
+                                <div style={{ marginBottom: '45px' }}>
+                                    <Link className="grayscale-link" to="#">
+                                        <img className="image" src="/assets/pngs/Nokia_wordmark.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
+                                        <p className="text-center pt-2">S.S. Services</p>
+                                    </Link>
+                                </div>
+                            </li>
+                            <li className="slide">
+                                <div style={{ marginBottom: '45px' }}>
+                                    <Link className="grayscale-link" to="#">
+                                        <img className="image" src="/assets/pngs/Huawei_Honor_Logo.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
+                                        <p className="text-center pt-2">S.S. Services</p>
+                                    </Link>
+                                </div>
+                            </li>
+                            <li className="slide">
+                                <div style={{ marginBottom: '45px' }}>
+                                    <Link className="grayscale-link" to="#">
+                                        <img className="image" src="/assets/pngs/Lenovo_logo_2015.png" alt="" style={{ height: '60px', objectFit: 'contain' }} />
+                                        <p className="text-center pt-2">S.S. Services</p>
+                                    </Link>
+                                </div>
+                            </li>
+                        </Carousel>
                     </div>
                 </div>
             </section>
